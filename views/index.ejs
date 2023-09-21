@@ -2,15 +2,23 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>Hello, <%= user ? user.profile.name : "Whimsy!" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
+  <h1>Hello, <%= user ? user.profile.name + "!" : "Whimsy!" %></h1>
+  <h3>Welcome to Word Whimsy</h3>
+  <div class="white-div">
+    <h1>Journaling <br>Anytime <br>Anywhere</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus metus id justo iaculis, eu tincidunt tellus consectetur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus ullamcorper magna in nunc lacinia, vel cursus orci malesuada. Proin in lacus vel purus eleifend feugiat.</p>
+  </div>
+  <% if (!user) { %>
+    <a href="">
+      <button>Log in to Begin!</button>
+    </a>
+  <% } %>
+  <% if (user) { %>
+    <a href="">
+      <button>Start New Entry</button>
+    </a>
   <% } %>
 </main>
+
 
 <%- include('./partials/footer') %>
