@@ -9,12 +9,10 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus metus id justo iaculis, eu tincidunt tellus consectetur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus ullamcorper magna in nunc lacinia, vel cursus orci malesuada. Proin in lacus vel purus eleifend feugiat.</p>
   </div>
   <% if (!user) { %>
-    <a href="">
-      <button>Log in to Begin!</button>
-    </a>
+    <h3>Log in to Begin!</h3>
   <% } %>
   <% if (user) { %>
-    <a href="">
+    <a href="/posts/new">
       <button>Start New Entry</button>
     </a>
   <% } %>

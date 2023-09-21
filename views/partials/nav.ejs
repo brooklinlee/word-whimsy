@@ -4,10 +4,11 @@
 </head>
 <body>
   <nav>
-    <i class="fa-solid fa-pen" style="color: #6A95F0;"></i>
+    <a href="/"><img src="/assets/ww-logo.png" alt="Word whimsy logo" id="nav-logo"></a>
     <% if (user) { %>
       <a href="/auth/logout" class="right">My Journal</a>
       <a href="/auth/logout" class="right">New Entry</a>
+      <a href="/auth/logout" class="right">Writers</a>
       <a href="/auth/logout" class="right">Logout</a>
     <% } else { %>
       <div 
