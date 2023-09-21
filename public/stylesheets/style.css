@@ -11,12 +11,18 @@ html {
   box-sizing: inherit;
 }
 
+:root {
+  --main-blue: #144ECC;
+  --dark-blue: #191994;
+  --medium-blue: #6A95F0;
+  --light-blue: #D0D6FF;
+}
+
 body {
-  background-color: #1a1a1a;
+  background-color: var(--main-blue);
   color: #f6f6f6;
   /* Use a system font, if none are available use any found sans-sarif font */
-  font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
-    'Helvetica Neue', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
 }
 

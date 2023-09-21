@@ -4,7 +4,14 @@
 </head>
 <body>
   <nav>
+    <i class="fa-solid fa-pen" style="color: #6A95F0;"></i>
     <% if (user) { %>
+      <a href="/auth/logout" class="right">
+        <button type="submit">My Journal</button>
+      </a>
+      <a href="/auth/logout" class="right">
+        <button type="submit">New Entry</button>
+      </a>
       <a href="/auth/logout" class="right">
         <button type="submit">Logout</button>
       </a>
