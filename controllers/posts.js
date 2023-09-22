@@ -8,14 +8,13 @@ function newPost(req, res) {
 }
 
 function create(req, res) {
-  req.body.public = !!req.body.public
   req.body.author = req.user.profile._id
+  req.body.public = !!req.body.public
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]
   }
   Post.create(req.body)
   .then(post => {
-
     res.redirect('/posts')
   })
   .catch(err => {
@@ -78,18 +77,17 @@ function edit(req,res) {
 }
 
 function update(req, res) {
-  Post.findByIdAndUpdate(req.params.postId)
-  .populate('author')
+  Post.findByIdAndUpdate(req.params.postId, req.body, {new: true})
   .then(post => {
-    // if(post.author.equals(req.user.profile._id)) {
+    if(post.author.equals(req.user.profile._id)) {
       req.body.public = !!req.body.public
       post.updateOne(req.body)
       .then(() => {
         res.redirect(`/posts`)
       })
-    // }  else {
-    //   throw new Error('🚫 Not authorized 🚫')
-    // }
+    }  else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
   })
   .catch(err => {
     console.log('❌')
