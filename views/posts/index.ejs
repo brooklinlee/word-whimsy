@@ -5,6 +5,10 @@
 
 <main>
   <section>
+    <!-- Set up isSelf to view only your whimsy entries -->
+    <!-- Or display "You don't have any entries yet, start writing here" -->
+
+    
     <h1>Your Whimsy</h1>
     <h4>Whimsy Writer since ...</h4>
     <h4>... Whimsy Entries</h4>
@@ -16,10 +20,11 @@
     <% posts.forEach(post => { %>
     <div class="white-div">
       <p><%= post.title%></p>
+      
       <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
         <button type="submit">❌</button>
       </form>
-      <form action="XXX" method="XXX">
+      <form action="/posts/<%= post._id %>/edit" method="GET">
         <button type="submit">✏️</button>
       </form>
     </div>

@@ -2,15 +2,20 @@
 <%- include('../partials/nav') %>
 
 <main>
-<h1>NEW PAGE</h1>
+<h1>EDIT PAGE</h1>
 <form action="/posts" method="POST">
   <section>
-    <label for="date-input">Date:</label>
-    <input type="text" name="date" id="date-input">
-    <label for="title-input">Title:</label>
-    <input type="text" name="title" id="title-input">
-    <label for="feelings-input">Today I am Feeling:</label>
-    <select name="feelings" id="feelings-input">
+    <label for="entry-edit">Edit:</label>
+    <input type="textbox" name="content" id="entry-edit" value="<%= post.content %>">
+  </section>
+  <section>
+    <label for="date-edit">Date:</label>
+    <input type="text" name="date" id="date-edit" value="<%= post.date %>">
+    <label for="title-edit">Title:</label>
+    <input type="text" name="title" id="title-edit">
+    <label for="feelings-edit">Today I am Feeling:</label>
+    <select name="feelings" id="feelings-edit">
+      <option value="<%= post.feelings %>"><%= post.feelings %></option>
       <option value="😄">😄</option>
       <option value="😢">😢</option>
       <option value="🥳">🥳</option>
@@ -21,11 +26,7 @@
     <label for="public-checkbox">Public:</label>
     <input type="checkbox" id="public-checkbox">
   </section>
-  <section>
-    <h5>Randomly generated journal prompt here</h5>
-    <label for="entry-input">Entry:</label>
-    <input type="textbox" name="content" id="entry-input" placeholder="Type your Whimsy entry here ...">
-  </section>
+  
   <button type="submit">Save Whimsy</button>
 </form>
 </main>

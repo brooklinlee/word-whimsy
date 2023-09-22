@@ -9,13 +9,18 @@ function newPost(req, res) {
 
 function create(req, res) {
   req.body.public = !!req.body.public
-  // req.body.owner = req.user.profile._id
-  for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[key]
-  }
-  Post.create(req.body)
-  .then(post => {
-    res.redirect('/posts')
+  Profile.findById(req.user.profile._id)
+  .then(profile => {
+    profile.posts.push(req.body)
+    profile.save()
+    .then(() => {
+      res.redirect('/posts')
+    })
+    .catch(err => {
+      console.log(err)
+      console.log('❌❌❌')
+      res.redirect('/')
+    })
   })
   .catch(err => {
     console.log(err)
@@ -23,6 +28,22 @@ function create(req, res) {
     res.redirect('/')
   })
 }
+// function create(req, res) {
+//   req.body.public = !!req.body.public
+//   // req.body.owner = req.user.profile._id
+//   for (let key in req.body) {
+//     if (req.body[key] === '') delete req.body[key]
+//   }
+//   Post.create(req.body)
+//   .then(post => {
+//     res.redirect('/posts')
+//   })
+//   .catch(err => {
+//     console.log(err)
+//     console.log('❌❌❌')
+//     res.redirect('/')
+//   })
+// }
 
 function index(req, res) {
   Post.find({})
@@ -57,9 +78,14 @@ function deletePost(req, res) {
   })  
 }
 
+function edit(req, res) {
+
+}
+
 export {
   newPost as new,
   create,
   index,
   deletePost as delete,
+  edit,
 }
