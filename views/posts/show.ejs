@@ -1,1 +1,23 @@
-<h1>SHOW</h1>
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <section>
+    <h2>Date:</h2>
+    <h3><%= post.date %></h3>
+    <h2>Title:</h2>
+    <h3><%= post.title %></h3>
+    <h2>How did you feel?</h2>
+    <h3><%= post.feelings %></h3>
+    <h2>Public:</h2>
+    <h3><%= post.public ? 'Public' : 'Private' %></h3>
+  </section>
+  <section class="white-div">
+    <p><%= post.content %></p>
+  </section>
+  <a href="/posts">
+    <button type="submit">Go back</button>
+  </a>
+</main>
+
+<%- include('../partials/footer') %>
