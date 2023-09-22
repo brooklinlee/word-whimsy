@@ -9,12 +9,13 @@ function newPost(req, res) {
 
 function create(req, res) {
   req.body.public = !!req.body.public
-  req.body.owner = req.user.profile._id
+  req.body.author = req.user.profile._id
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]
   }
   Post.create(req.body)
   .then(post => {
+
     res.redirect('/posts')
   })
   .catch(err => {
@@ -60,12 +61,14 @@ function deletePost(req, res) {
 function edit(req,res) {
   Post.findById(req.params.postId)
   .then(post => {
-    // if(post.author.equals(req.user.profile._id)) {
+    if(post.author.equals(req.user.profile._id)) {
       res.render('posts/edit', {
         post: post,
         title: 'Edit Whimsy Entry'
       })
-    // }
+    } else {
+      res.redirect('/posts')
+    }
   })
   .catch(err => {
     console.log(err)
