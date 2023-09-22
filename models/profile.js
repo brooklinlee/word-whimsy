@@ -11,11 +11,20 @@ const commentSchema = new Schema({
 })
 
 const postSchema = new Schema({
-  title: String,
-  content: String,
+  title: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  },
   feelings: String,
   comments: [commentSchema],
-  public: Boolean,
+  public: {
+    type: Boolean,
+    required: true
+  },
   author: { type: Schema.Types.ObjectId, ref: 'Profile' }
 }, {
   timestamps: true
