@@ -7,6 +7,16 @@ function newPost(req, res) {
   })
 }
 
+function formatDate(date) {
+  const today = new Date()
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  const day = today.getDate()
+  const month = today.getMonth()
+  const year = today.getFullYear()
+  const formattedDate = `${months[month]} ${day}, ${year}`
+  return formattedDate
+}
+
 function create(req, res) {
   req.body.author = req.user.profile._id
   req.body.public = !!req.body.public
@@ -15,6 +25,7 @@ function create(req, res) {
   }
   Post.create(req.body)
   .then(post => {
+    post.date = formatDate(post.date)
     res.redirect('/posts')
   })
   .catch(err => {
@@ -23,6 +34,8 @@ function create(req, res) {
     res.redirect('/')
   })
 }
+
+
 
 function index(req, res) {
   Post.find({})
@@ -38,6 +51,9 @@ function index(req, res) {
     res.redirect('/')
   })
 }
+
+
+
 
 function deletePost(req, res) {
   Post.findByIdAndDelete(req.params.postId)
@@ -121,4 +137,5 @@ export {
   edit,
   update,
   show,
+  
 }
