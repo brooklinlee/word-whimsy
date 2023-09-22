@@ -13,17 +13,20 @@ const postSchema = new Schema({
   date: String,
   title: {
     type: String,
-    required: true
+    // required: true
   },
   content: {
     type: String,
-    required: true
+    // required: true
   },
-  feelings: String,
+  feelings: {
+    type: String,
+    enum: ['😄', '😢', '🥳', '😴', '😠', '😎']
+  },
   comments: [commentSchema],
   public: {
     type: Boolean,
-    required: true
+    // required: true
   },
   author: { type: Schema.Types.ObjectId, ref: 'Profile' }
 }, {

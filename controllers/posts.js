@@ -10,6 +10,9 @@ function newPost(req, res) {
 function create(req, res) {
   req.body.public = !!req.body.public
   // req.body.owner = req.user.profile._id
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
   Post.create(req.body)
   .then(post => {
     res.redirect('/posts')

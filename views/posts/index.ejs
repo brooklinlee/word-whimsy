@@ -3,4 +3,22 @@
 
 <h1>INDEX PAGE</h1>
 
+<main>
+  <section>
+    <h1>Your Whimsy</h1>
+    <h4>Whimsy Writer since ...</h4>
+    <h4>... Whimsy Entries</h4>
+    <a href="/posts/new">
+      <button type="submit">New Whimsy</button>
+    </a>
+  </section>
+  <section>
+    <% posts.forEach(post => { %>
+    <div class="white-div">
+      <p><%= post. title%></p>
+    </div>
+    <% }) %>
+  </section>
+</main>
+
 <%- include('../partials/footer') %>
