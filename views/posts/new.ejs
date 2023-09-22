@@ -1,6 +1,33 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
+<main>
 <h1>NEW PAGE</h1>
+<form action="XXX" method="XXX">
+  <section>
+    <label for="date-input">Date:</label>
+    <input type="text" name="date" id="date-input">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title-input">
+    <label for="feelings-input">Today I am Feeling:</label>
+    <select name="feelings" id="feelings-input">
+      <option value="😄">😄</option>
+      <option value="😢">😢</option>
+      <option value="🥳">🥳</option>
+      <option value="😴">😴</option>
+      <option value="😠">😠</option>
+      <option value="😎">😎</option>
+    </select>
+    <label for="public-checkbox">Public:</label>
+    <input type="checkbox" id="public-checkbox">
+  </section>
+  <section>
+    <h5>Randomly generated journal prompt here</h5>
+    <label for="entry-input">Entry:</label>
+    <input type="textbox" name="content" id="entry-input" placeholder="Type your Whimsy entry here ...">
+  </section>
+  <button>Save Whimsy</button>
+</form>
+</main>
 
 <%- include('../partials/footer') %>
