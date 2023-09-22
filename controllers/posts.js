@@ -39,9 +39,27 @@ function index(req, res) {
   })
 }
 
+function deletePost(req, res) {
+  Post.findByIdAndDelete(req.params.postId)
+  .then(post => {
+    if (post.author.equals(req.user.profile._id)) {
+      post.deleteOne()
+      .then(() => {
+        res.redirect('/posts')
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/posts')
+  })  
+}
 
 export {
   newPost as new,
   create,
   index,
+  deletePost as delete,
 }

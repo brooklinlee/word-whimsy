@@ -7,7 +7,7 @@ const router = Router()
 router.get('/new', postsCtrl.new)
 router.get('/', postsCtrl.index)
 router.post('/', isLoggedIn, postsCtrl.create)
-
+router.delete('/:postId', isLoggedIn, postsCtrl.delete)
 
 export {
   router
