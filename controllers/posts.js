@@ -9,18 +9,13 @@ function newPost(req, res) {
 
 function create(req, res) {
   req.body.public = !!req.body.public
-  Profile.findById(req.user.profile._id)
-  .then(profile => {
-    profile.posts.push(req.body)
-    profile.save()
-    .then(() => {
-      res.redirect('/posts')
-    })
-    .catch(err => {
-      console.log(err)
-      console.log('❌❌❌')
-      res.redirect('/')
-    })
+  req.body.owner = req.user.profile._id
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  Post.create(req.body)
+  .then(post => {
+    res.redirect('/posts')
   })
   .catch(err => {
     console.log(err)
@@ -28,22 +23,6 @@ function create(req, res) {
     res.redirect('/')
   })
 }
-// function create(req, res) {
-//   req.body.public = !!req.body.public
-//   // req.body.owner = req.user.profile._id
-//   for (let key in req.body) {
-//     if (req.body[key] === '') delete req.body[key]
-//   }
-//   Post.create(req.body)
-//   .then(post => {
-//     res.redirect('/posts')
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     console.log('❌❌❌')
-//     res.redirect('/')
-//   })
-// }
 
 function index(req, res) {
   Post.find({})
@@ -95,10 +74,50 @@ function edit(req,res) {
   })
 }
 
+function update(req, res) {
+  Post.findByIdAndUpdate(req.params.postId)
+  .populate('author')
+  .then(post => {
+    // if(post.author.equals(req.user.profile._id)) {
+      req.body.public = !!req.body.public
+      post.updateOne(req.body)
+      .then(() => {
+        res.redirect(`/posts`)
+      })
+    // }  else {
+    //   throw new Error('🚫 Not authorized 🚫')
+    // }
+  })
+  .catch(err => {
+    console.log('❌')
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+function show(req, res) {
+  Post.findById(req.params.postId)
+  .then(post => {
+    // const isSelf = post.author._id.equals(req.user.profile._id)
+    res.render('posts/show', {
+    title: `${post.title}`,
+    post
+    // isSelf
+    })
+  })
+  .catch(err => {
+    console.log('❌')
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   newPost as new,
   create,
   index,
   deletePost as delete,
   edit,
+  update,
+  show,
 }

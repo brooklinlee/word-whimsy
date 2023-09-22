@@ -3,7 +3,7 @@
 
 <main>
 <h1>EDIT PAGE</h1>
-<form action="XXX" method="XXX">
+<form action="/posts/<%= post._id %>?_method=PUT" method="POST">
   <section>
     <label for="entry-edit">Edit:</label>
     <input type="textbox" name="content" id="entry-edit" value="<%= post.content %>">
@@ -12,7 +12,7 @@
     <label for="date-edit">Date:</label>
     <input type="text" name="date" id="date-edit" value="<%= post.date %>">
     <label for="title-edit">Title:</label>
-    <input type="text" name="title" id="title-edit">
+    <input type="text" name="title" id="title-edit" value="<%= post.title %>">
     <label for="feelings-edit">Today I am Feeling:</label>
     <select name="feelings" id="feelings-edit">
       <option value="<%= post.feelings %>"><%= post.feelings %></option>

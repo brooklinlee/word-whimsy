@@ -19,7 +19,12 @@
   <section>
     <% posts.forEach(post => { %>
     <div class="white-div">
-      <p><%= post.title%></p>
+      <form action="/posts/<%= post._id %>" method="GET">
+        <button type="submit"><%= post.title%></button>
+      </form>
+      <p><%= post.date%></p>
+      <p><%= post.feelings%></p>
+      <p><%= post.public ? 'Public' : 'Private' %></p>
       
       <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
         <button type="submit">❌</button>
