@@ -23,7 +23,7 @@ function index(req, res) {
 function show(req, res) {
   Profile.findById(req.params.profileId)
   .then(profile => {
-    Post.find({}, )
+    Post.find({author: req.params.profileId})
     .populate('author')
     .then(posts => {
       const isSelf = profile._id.equals(req.user.profile._id)
