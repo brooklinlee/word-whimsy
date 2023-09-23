@@ -5,8 +5,13 @@
 <main>
   <% profiles.forEach(profile => { %>
     <div class="white-div">
-      <!-- author name -->
-      <%= profile.name %>
+      <section>
+        <a href="/profiles/<%= profile._id %>"><%= profile.name %></a>
+        <!-- number of posts -->
+      </section>
+      <section>
+        <%= getRandomIcon() %>
+      </section>
     </div>
   <% }) %>
 </main>
