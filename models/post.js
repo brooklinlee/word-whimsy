@@ -18,11 +18,11 @@ const postSchema = new Schema({
   },
   title: {
     type: String,
-    // required: true
+    default: 'Untitled'
   },
   content: {
     type: String,
-    // required: true
+    required: true
   },
   feelings: {
     type: String,
