@@ -23,8 +23,8 @@
       <option value="😠">😠</option>
       <option value="😎">😎</option>
     </select>
-    <label for="public-checkbox">Public:</label>
-    <input type="checkbox" id="public-checkbox">
+    <label for="public-checkbox-edit">Public:</label>
+    <input type="checkbox" name="public" id="public-checkbox" <%= post.public ? 'checked' : '' %> id="public-checkbox-edit">
   </section>
   
   <button type="submit">Save Whimsy</button>

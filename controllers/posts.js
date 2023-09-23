@@ -53,9 +53,6 @@ function index(req, res) {
   })
 }
 
-
-
-
 function deletePost(req, res) {
   Post.findByIdAndDelete(req.params.postId)
   .then(post => {
@@ -94,10 +91,10 @@ function edit(req,res) {
 }
 
 function update(req, res) {
+  req.body.public = !!req.body.public
   Post.findByIdAndUpdate(req.params.postId, req.body, {new: true})
   .then(post => {
     if(post.author.equals(req.user.profile._id)) {
-      req.body.public = !!req.body.public
       post.updateOne(req.body)
       .then(() => {
         res.redirect(`/posts`)
