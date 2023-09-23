@@ -39,7 +39,6 @@ function index(req, res) {
   Post.find({author: req.user.profile._id})
   .populate('author')
   .then(posts => {
-    // const isSelf = posts.some(post => post.author._id.equals(req.user.profile._id))
     const isSelf = posts.some(post => post.author._id.equals(req.user.profile._id))
     res.render('posts/index', {
       posts,

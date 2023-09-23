@@ -3,4 +3,22 @@
 
 <h1>SHOW PROFILES</h1>
 
+<main>
+  <section>
+    <h1><%= isSelf ? "Your" : profile.name %>'s Whimsy</h1>
+    <!-- how many entries -->
+    <!-- how many public entries -->
+    <a href="/profiles">
+      <button>Back to Writers</button>
+    </a>
+  </section>
+  <section>
+    <% posts.forEach(post => { %>
+      <div class="white-div">
+        <h1><%= post.title %></h1>
+      </div>
+      <% }) %>
+  </section>
+</main>
+
 <%- include('../partials/footer') %>
