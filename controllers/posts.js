@@ -7,15 +7,15 @@ function newPost(req, res) {
   })
 }
 
-function formatDate(date) {
-  const today = new Date()
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-  const day = today.getDate()
-  const month = today.getMonth()
-  const year = today.getFullYear()
-  const formattedDate = `${months[month]} ${day}, ${year}`
-  return formattedDate
-}
+// function formatDate(date) {
+//   const today = new Date()
+//   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+//   const day = today.getDate()
+//   const month = today.getMonth()
+//   const year = today.getFullYear()
+//   const formattedDate = `${months[month]} ${day}, ${year}`
+//   return formattedDate
+// }
 
 function create(req, res) {
   req.body.author = req.user.profile._id
@@ -25,7 +25,7 @@ function create(req, res) {
   }
   Post.create(req.body)
   .then(post => {
-    post.date = formatDate(post.date)
+    // post.date = formatDate(post.date)
     res.redirect('/posts')
   })
   .catch(err => {
@@ -35,19 +35,20 @@ function create(req, res) {
   })
 }
 
-
-
 function index(req, res) {
-  Post.find({})
+  Post.find({author: req.user.profile._id})
+  .populate('author')
   .then(posts => {
+    const isSelf = posts.some(post => post.author._id.equals(req.user.profile._id))
     res.render('posts/index', {
       posts,
-      title: 'Whimsy Journal'
+      title: 'Whimsy Journal',
+      isSelf
     })
   })
   .catch(err => {
-    console.log(err)
     console.log('❌❌❌')
+    console.log(err)
     res.redirect('/')
   })
 }
@@ -114,12 +115,13 @@ function update(req, res) {
 
 function show(req, res) {
   Post.findById(req.params.postId)
+  .populate('author')
   .then(post => {
-    // const isSelf = post.author._id.equals(req.user.profile._id)
+    const isSelf = post.author._id.equals(req.user.profile._id)
     res.render('posts/show', {
     title: `${post.title}`,
-    post
-    // isSelf
+    post,
+    isSelf
     })
   })
   .catch(err => {

@@ -22,13 +22,14 @@
       <p><%= post.date %></p>
       <p><%= post.feelings%></p>
       <p><%= post.public ? 'Public' : 'Private' %></p>
-      
-      <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-        <button type="submit">❌</button>
-      </form>
-      <form action="/posts/<%= post._id %>/edit" method="GET">
-        <button type="submit">✏️</button>
-      </form>
+      <% if (isSelf) { %>
+        <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+          <button type="submit">❌</button>
+        </form>
+        <form action="/posts/<%= post._id %>/edit" method="GET">
+          <button type="submit">✏️</button>
+        </form>
+      <% } %>
     </div>
     <% }) %>
   </section>
