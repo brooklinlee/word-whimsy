@@ -5,7 +5,7 @@
 
 <main>
   <section>
-    <h1><%= isSelf ? "Your" : profile.name %>'s Whimsy</h1>
+    <h1><%= isSelf ? "Your" : profile.name + "'s"%> Whimsy</h1>
     <!-- how many entries -->
     <!-- how many public entries -->
     <a href="/profiles">
@@ -14,9 +14,22 @@
   </section>
   <section>
     <% posts.forEach(post => { %>
-      <div class="white-div">
-        <h1><%= post.title %></h1>
-      </div>
+      <% if (post.public === true || isSelf) { %>
+       
+        <div class="white-div">
+          <a href="/posts/<%= post._id %>"><h1><%= post.title %></h1></a>
+          <p><%= post.author.name %></p>
+          <p><%= post.public ? 'Public' : 'Private' %></p>
+          <% if (isSelf) { %>
+            <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+              <button type="submit">❌</button>
+            </form>
+            <form action="/posts/<%= post._id %>/edit" method="GET">
+              <button type="submit">✏️</button>
+            </form>
+            <% } %>
+          </div>
+          <% } %>
       <% }) %>
   </section>
 </main>

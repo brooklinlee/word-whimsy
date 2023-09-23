@@ -15,9 +15,14 @@
   <section class="white-div">
     <p><%= post.content %></p>
   </section>
-  <a href="/posts">
-    <button type="submit">Go back</button>
-  </a>
+  
+  <% if (isSelf) { %>
+    <a href="/posts">
+      <button type="submit">Go back</button>
+    </a>
+    <% } else { %>
+      
+    <% } %>
   <a href="/posts/<%= post._id %>/edit">
     <button>Edit Post</button>
   </a>
