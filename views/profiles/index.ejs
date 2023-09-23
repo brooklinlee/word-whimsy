@@ -2,5 +2,13 @@
 <%- include('../partials/nav') %>
 
 <h1>INDEX PROFILES</h1>
+<main>
+  <% profiles.forEach(profile => { %>
+    <div class="white-div">
+      <!-- author name -->
+      <%= profile.name %>
+    </div>
+  <% }) %>
+</main>
 
 <%- include('../partials/footer') %>
