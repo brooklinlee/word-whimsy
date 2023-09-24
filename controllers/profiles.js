@@ -25,6 +25,7 @@ function show(req, res) {
   .then(profile => {
     Post.find({author: req.params.profileId})
     .populate('author')
+    .populate('comments')
     .then(posts => {
       const isSelf = profile._id.equals(req.user.profile._id)
       // const isPublic = posts.public

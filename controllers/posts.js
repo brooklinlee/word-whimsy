@@ -113,12 +113,36 @@ function update(req, res) {
 function show(req, res) {
   Post.findById(req.params.postId)
   .populate('author')
+  .populate('comments')
   .then(post => {
+    console.log(req.body)
     const isSelf = post.author._id.equals(req.user.profile._id)
     res.render('posts/show', {
     title: `${post.title}`,
     post,
     isSelf
+    })
+  })
+  .catch(err => {
+    console.log('❌')
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+function createComment(req, res) {
+  console.log(req.body)
+  Post.findById(req.params.postId)
+  .then(post => {
+    post.comments.push(req.body)
+    post.save()
+    .then(() => {
+      res.redirect(`/posts/${post._id}`)
+    })
+    .catch(err => {
+      console.log('❌')
+      console.log(err)
+      res.redirect('/')
     })
   })
   .catch(err => {
@@ -136,5 +160,5 @@ export {
   edit,
   update,
   show,
-  
+  createComment,
 }
