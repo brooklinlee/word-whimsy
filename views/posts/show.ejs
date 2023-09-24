@@ -17,14 +17,12 @@
   </section>
   
   <% if (isSelf) { %>
-    <a href="/posts">
-      <button type="submit">Go back</button>
+    <a href="/posts/<%= post._id %>/edit">
+      <button>Edit Post</button>
     </a>
-    <% } else { %>
-      
-    <% } %>
-  <a href="/posts/<%= post._id %>/edit">
-    <button>Edit Post</button>
+  <% } %>
+  <a href="javascript:history.back()">
+    <button>Go Back</button>
   </a>
 </main>
 

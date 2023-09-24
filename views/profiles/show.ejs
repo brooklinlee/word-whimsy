@@ -1,21 +1,18 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1>SHOW PROFILES</h1>
-
 <main>
   <section>
     <h1><%= isSelf ? "Your" : profile.name + "'s"%> Whimsy</h1>
     <!-- how many entries -->
     <!-- how many public entries -->
-    <a href="/profiles">
+    <a href="javascript:history.back()">
       <button>Back to Writers</button>
     </a>
   </section>
   <section>
     <% posts.forEach(post => { %>
       <% if (post.public === true || isSelf) { %>
-       
         <div class="white-div">
           <a href="/posts/<%= post._id %>"><h1><%= post.title %></h1></a>
           <p><%= post.author.name %></p>
