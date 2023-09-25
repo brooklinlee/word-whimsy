@@ -84,10 +84,19 @@ main {
 #index-page {
   text-align: center;
   display: block;
+  
+}
+
+#index-page > h1 {
+  font-size: 50px;
+  line-height: 0.8;
 }
 
 #centered-div {
+  margin: 50px auto;
+  padding: 30px 70px;
   text-align: center;
+  width: 60%;
 }
 
 /* posts/index */
@@ -122,6 +131,19 @@ main {
   font-size: 35px;
 }
 
+#index-div > a {
+  color: var(--main-blue);
+  text-decoration: none;
+  font-size: 24px;
+}
+
+#index-div > a:visited {
+  color: var(--dark-blue);
+}
+
+#index-div > a:hover {
+
+}
 
 /* posts/new */
 
@@ -167,3 +189,4 @@ textarea {
   font-size: 15px;
   border-radius: 4px;
 }
+
