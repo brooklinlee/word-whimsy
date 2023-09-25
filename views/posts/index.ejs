@@ -1,19 +1,19 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
-  <section>
-    <!-- Set up isSelf to view only your whimsy entries DONE-->
-    <!-- Or display "You don't have any entries yet, start writing here" -->
-    <h1><%= user.profile.name %>'s Whimsy</h1>
-    <h4>Whimsy Writer since </h4>
-    <h4>... Whimsy Entries</h4>
-    <h4> Whimsy Entries</h4>
-    <a href="/posts/new">
-      <button type="submit">New Whimsy</button>
-    </a>
+<main id="posts-index">
+  <section class="left-column">
+    <div class="articles">
+      <h1><%= user.profile.name %>'s Whimsy</h1>
+      <h4>Whimsy Writer since </h4>
+      <h4>... Whimsy Entries</h4>
+      <h4> Whimsy Entries</h4>
+      <a href="/posts/new">
+        <button type="submit">New Whimsy</button>
+      </a>
+    </div>
   </section>
-  <section>
+  <section class="right-column">
     <% posts.forEach(post => { %>
     <div class="white-div">
       <a href="/posts/<%= post._id %>"><h1><%= post.title %></h1></a>

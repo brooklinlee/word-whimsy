@@ -52,6 +52,11 @@ button {
   border-radius: 4px;
 }
 
+#posts-index{
+  flex-direction: row;
+}
+
+
 .white-div {
   text-align: center;
   background-color: white;
@@ -60,6 +65,20 @@ button {
   padding: 30px;
   margin: 40px;
 }
+
+.right-column {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+
+.articles {
+  flex-direction: column-reverse;
+}
+
+/* .right-column {
+  display: flex;
+} */
 
 .right {
   margin-left: auto;
