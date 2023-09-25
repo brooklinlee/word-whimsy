@@ -115,19 +115,15 @@ function show(req, res) {
   .populate('author')
   .populate('comments')
   .then(post => {
-    const isSelf = post.author._id.equals(req.user.profile._id)
-    let isAuthor = false
-    for (const comment of post.comments) {
-      if (req.user.profile._id.equals(comment.commentAuthor._id)) {
-        isAuthor = true
-        break
-      }
-    }
+    const isSelf = post.author._id.equals(req.user.profile._id);
+    const comments = post.comments
+    const userProfileId = req.user.profile._id
     res.render('posts/show', {
     title: `${post.title}`,
     post,
     isSelf,
-    isAuthor
+    comments,
+    userProfileId
     })
   })
   .catch(err => {
