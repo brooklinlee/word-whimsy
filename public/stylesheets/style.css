@@ -51,6 +51,7 @@ button {
   padding: 16px 32px;
   margin: 4px 2px;
   font-family: 'Poppins', sans-serif;
+  font-size: 16px;
   font-weight: 600;
   transition-duration: 0.4s;
   width: fit-content;
@@ -69,17 +70,57 @@ button:hover {
   border-radius: 20px;
   padding: 30px;
   margin: 20px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 #reverse-list {
   flex-direction: column-reverse;
 }
 
+label {
+  display: inline-block; 
+  width: 30%; 
+  text-align: right; 
+  margin-right: 10px; 
+  font-size: 24px;
+  /* font-weight: 600; */
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+input[type="checkbox"],
+input[type="textbox"] {
+  font-size: larger;
+  display: inline-block; 
+  width: 60%;
+  border-radius: 20px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.08), 0 17px 50px 0 rgba(0,0,0,0.08);
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+textarea {
+  width: 90%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
 main {
   display: flex;
 }
 
-/* main index */
+/* index */
 
 #index-page {
   text-align: center;
@@ -88,8 +129,10 @@ main {
 }
 
 #index-page > h1 {
+  padding-top: 70px;
   font-size: 50px;
   line-height: 0.8;
+  
 }
 
 #centered-div {
@@ -97,6 +140,11 @@ main {
   padding: 30px 70px;
   text-align: center;
   width: 60%;
+}
+
+
+#index-button {
+  padding-bottom: 70px;
 }
 
 /* posts/index */
@@ -147,46 +195,32 @@ main {
 
 /* posts/new */
 
+/* #posts-new {
+  background-color: var(--dark-blue);
+} */
+
 .posts-new-left {
   display: block;
   white-space: pre-line;
 }
 
-label {
-  display: inline-block; 
-  width: 30%; 
-  text-align: right; 
-  margin-right: 10px; 
-  font-size: larger;
-  /* font-weight: 600; */
-  font-weight: 600;
+
+
+/* posts/edit */
+
+#entry-edit {
+  margin-left: 24px;
 }
 
-input[type="text"],
-input[type="date"],
-select,
-input[type="checkbox"],
-input[type="textbox"] {
-  font-size: larger;
-  display: inline-block; 
-  width: 60%;
-  border-radius: 20px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
+/* #left-column > label, input {
+  display: inline-block;
+  text-align: left;
+} */
+
+#posts-edit > section {
+  display: inline-block;
 }
 
-input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
+#posts-edit > button {
+  padding: auto;
 }
-
-textarea {
-  width: 90%;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  font-size: 15px;
-  border-radius: 4px;
-}
-

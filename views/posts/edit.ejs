@@ -1,15 +1,15 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
-  <section class="left-column">
+<main id="posts-edit">
+  <section class="right-column">
 <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
     <label for="entry-edit">Edit:</label>
-    <textarea name="content" id="entry-edit" cols="30" rows="10"><%= post.content %></textarea>
+    <textarea name="content" id="entry-edit" cols="30" rows="30"><%= post.content %></textarea>
   </section>
-  <section class="right-column">
+  <section class="left-column">
     <label for="date-edit">Date:</label>
-    <input type="text" name="date" id="date-edit" value="<%= post.date %>">
+    <input type="date" name="date" id="date-edit" value="<%= post.date %>">
     <label for="title-edit">Title:</label>
     <input type="text" name="title" id="title-edit" value="<%= post.title %>">
     <label for="feelings-edit">Today I am Feeling:</label>
@@ -24,7 +24,7 @@
     </select>
     <label for="public-checkbox-edit">Public:</label>
     <input type="checkbox" name="public" id="public-checkbox" <%= post.public ? 'checked' : '' %> id="public-checkbox-edit">
-    
+  </br>
     <button type="submit">Save Whimsy</button>
   </form>
 </section>
