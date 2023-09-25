@@ -161,7 +161,6 @@ function createComment(req, res) {
   console.log(req.body)
   Post.findById(req.params.postId)
   .then(post => {
-    // const isAuthor = post.comments.commentAuthor.euqals(req.user.profile._id)
     req.body.commentAuthor = req.user.profile._id
     post.comments.push(req.body)
     post.save()

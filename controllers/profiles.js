@@ -27,9 +27,7 @@ function show(req, res) {
     .populate('author')
     .populate('comments')
     .then(posts => {
-      console.log('🐣', posts)
       const isSelf = profile._id.equals(req.user.profile._id)
-      // const isPublic = posts.public
       res.render('profiles/show', {
       title: 'Profile',
       profile,

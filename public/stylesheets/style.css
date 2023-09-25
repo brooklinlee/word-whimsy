@@ -30,6 +30,8 @@ nav {
   background-color: white;
   color: black;
   padding: 10px;
+  display: flex;
+  justify-content: flex-end;
   min-height: 60px; 
   font-size: 24px;
   font-weight: 600;
@@ -38,41 +40,32 @@ nav {
 nav > a {
   text-decoration: none;
   color: inherit;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
 }
-
-/* nav > a:visited {
-  color: var(--dark-blue)
-} */
 
 #my-whimsy {
   color: var(--medium-blue);
-  margin: 10px;
-  float: right;
 }
 
 #new-entry {
   color: var(--main-blue);
-  margin: 10px;
-  float: right;
 }
 
 #writers {
   color: var(--dark-blue);
-  margin: 10px;
-  float: right;
 }
 
 #logout {
   color: black;
-  margin: 10px;
-  float: right;
 }
 
 #nav-logo {
-  position: left;
- 
-  justify-content: flex-start;
+  position: fixed;
   height: 50px;
+  left: 10px;
 }
 
 button {
