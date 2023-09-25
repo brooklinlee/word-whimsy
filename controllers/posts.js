@@ -152,6 +152,27 @@ function createComment(req, res) {
   })
 }
 
+function deleteComment(req, res) {
+  Post.findById(req.params.postId)
+  .then(post => {
+    post.comments.id(req.params.commentId).deleteOne()
+    post.save()
+    .then(() => {
+      res.redirect(`/posts/${post._id}`)
+    })
+    .catch(err => {
+      console.log('❌')
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log('❌')
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
   newPost as new,
   create,
@@ -161,4 +182,5 @@ export {
   update,
   show,
   createComment,
+  deleteComment,
 }
