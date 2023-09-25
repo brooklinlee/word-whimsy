@@ -115,12 +115,14 @@ function show(req, res) {
   .populate('author')
   .populate('comments')
   .then(post => {
-    console.log(req.body)
+    // console.log(req.body)
     const isSelf = post.author._id.equals(req.user.profile._id)
+    const isAuthor = profile._id.equals(post.comments.commentAuthor)
     res.render('posts/show', {
     title: `${post.title}`,
     post,
-    isSelf
+    isSelf,
+    isAuthor
     })
   })
   .catch(err => {
@@ -154,18 +156,22 @@ function createComment(req, res) {
 
 function deleteComment(req, res) {
   Post.findById(req.params.postId)
+  .populate('author')
+  .populate('comments')
   .then(post => {
-    post.comments.id(req.params.commentId).deleteOne()
-    post.save()
-    .then(() => {
-      res.redirect(`/posts/${post._id}`)
+    const commentToDelete = post.comments.id(req.params.commentId)
+    if (
+      req.user.profile._id.equals(commentToDelete.commentAuthor) || 
+      req.user.profile._id.equals(post.author._id)) {
+        commentToDelete.deleteOne()
+        post.save()
+        .then(() => {
+          res.redirect(`/posts/${post._id}`)
+        })
+      } else {
+        throw new Error('🚫 Not authorized 🚫')
+      }
     })
-    .catch(err => {
-      console.log('❌')
-      console.log(err)
-      res.redirect('/')
-    })
-  })
   .catch(err => {
     console.log('❌')
     console.log(err)
