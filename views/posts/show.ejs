@@ -37,7 +37,7 @@
   <% post.comments.forEach(comment => { %>
     <div class="white-div">
       <p><%= comment.theComment %></p>
-      <p><%= comment.commentAuthor %></p>
+      <p><%= comment.commentAuthor.name %></p>
       <% if (isSelf || userProfileId.equals(comment.commentAuthor._id)) { %>
         <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
           <button type="submit">❌</button>

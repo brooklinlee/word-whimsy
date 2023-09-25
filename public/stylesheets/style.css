@@ -27,20 +27,51 @@ body {
 }
 
 nav {
-  background-color: #f6f6f6;
-  color: #1a1a1a;
-  display: flex;
-  align-items: center;
+  background-color: white;
+  color: black;
   padding: 10px;
-  min-height: 60px;
-  
+  min-height: 60px; 
+  font-size: 24px;
+  font-weight: 600;
 }
 
-.right {
-  margin-left: auto;
+nav > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* nav > a:visited {
+  color: var(--dark-blue)
+} */
+
+#my-whimsy {
+  color: var(--medium-blue);
+  margin: 10px;
+  float: right;
+}
+
+#new-entry {
+  color: var(--main-blue);
+  margin: 10px;
+  float: right;
+}
+
+#writers {
+  color: var(--dark-blue);
+  margin: 10px;
+  float: right;
+}
+
+#logout {
+  color: black;
+  margin: 10px;
+  float: right;
 }
 
 #nav-logo {
+  position: left;
+ 
+  justify-content: flex-start;
   height: 50px;
 }
 
@@ -221,6 +252,6 @@ main {
   display: inline-block;
 }
 
-#posts-edit > button {
-  padding: auto;
-}
+/* #posts-edit > button {
+  
+} */

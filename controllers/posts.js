@@ -131,8 +131,14 @@ function update(req, res) {
 function show(req, res) {
   Post.findById(req.params.postId)
   .populate('author')
-  .populate('comments')
+  .populate({
+    path: 'comments',
+    populate: {
+    path: 'commentAuthor'
+    }
+  })
   .then(post => {
+    console.log('🌮', post)
     const isSelf = post.author._id.equals(req.user.profile._id);
     const comments = post.comments
     const userProfileId = req.user.profile._id

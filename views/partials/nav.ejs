@@ -6,10 +6,10 @@
   <nav>
     <a href="/"><img src="/assets/ww-logo.png" alt="Word whimsy logo" id="nav-logo"></a>
     <% if (user) { %>
-      <a href="/posts" class="right">My Whimsy</a>
-      <a href="/posts/new" class="right">New Entry</a>
-      <a href="/profiles" class="right">Writers</a>
-      <a href="/auth/logout" class="right">Logout</a>
+      <a href="/posts" id="my-whimsy">My Whimsy</a>
+      <a href="/posts/new" id="new-entry">New Entry</a>
+      <a href="/profiles" id="writers">Writers</a>
+      <a href="/auth/logout" id="logout">Logout</a>
     <% } else { %>
       <div 
         id="g_id_onload"
