@@ -3,7 +3,25 @@ import { Post } from "../models/post.js"
 
 function newPost(req, res) {
   res.render('posts/new', {
-    title: 'New Whimsy Entry'
+    title: 'New Whimsy Entry',
+    getRandomJournalPrompt: () => {
+      const prompts = ['Write about a recent accomplishment that made you proud.',
+      'Describe a place from your childhood that holds special memories.',
+      'List three things you\'re grateful for today.',
+      'Write a letter to your future self, five years from now.',
+      'Reflect on a challenge you\'ve overcome and what you learned from it.',
+      'Write about your favorite way to relax and unwind.',
+      'Describe a goal you\'re working towards and why it\'s important to you.',
+      'List five books or movies that have had a significant impact on you and explain why.',
+      'Write about a person who has influenced your life in a positive way.',
+      'Describe a recent act of kindness you witnessed or experienced.',
+      'Write about a skill or hobby you\'d like to learn in the future.',
+      'Reflect on a mistake you\'ve made and the lessons it taught you.',
+      'Describe your ideal day from start to finish.',
+      'List three things you can do to take better care of yourself.',
+      'Write about a place you\'d love to visit someday and what you hope to experience there.' ]
+      return prompts[Math.floor(Math.random() * prompts.length)]
+    }
   })
 }
 

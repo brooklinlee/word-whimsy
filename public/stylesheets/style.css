@@ -47,7 +47,19 @@ nav {
 button {
   background-color: white;
   color: var(--dark-blue);
-  border-radius: 4px;
+  border-radius: 24px;
+  padding: 16px 32px;
+  margin: 4px 2px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition-duration: 0.4s;
+  width: fit-content;
+}
+
+button:hover {
+  /* background-color: var(--dark-blue); 
+  color: white; */
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .white-div {
@@ -67,6 +79,17 @@ main {
   display: flex;
 }
 
+/* main index */
+
+#index-page {
+  text-align: center;
+  display: block;
+}
+
+#centered-div {
+  text-align: center;
+}
+
 /* posts/index */
 
 #posts-index{
@@ -84,13 +107,14 @@ main {
   justify-content: flex-start; 
   align-items: flex-start;
   flex-direction: column;
-
+  margin: 24px auto;
 }
 
 .right-column {
   display: flex;
   flex:1 1 50%;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .articles {
@@ -111,6 +135,9 @@ label {
   width: 30%; 
   text-align: right; 
   margin-right: 10px; 
+  font-size: larger;
+  /* font-weight: 600; */
+  font-weight: 600;
 }
 
 input[type="text"],
@@ -118,6 +145,25 @@ input[type="date"],
 select,
 input[type="checkbox"],
 input[type="textbox"] {
+  font-size: larger;
   display: inline-block; 
-  width: 60%; 
+  width: 60%;
+  border-radius: 20px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+textarea {
+  width: 90%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size: 15px;
+  border-radius: 4px;
 }

@@ -2,12 +2,12 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <section>
+  <section class="left-column">
 <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
     <label for="entry-edit">Edit:</label>
     <textarea name="content" id="entry-edit" cols="30" rows="10"><%= post.content %></textarea>
   </section>
-  <section>
+  <section class="right-column">
     <label for="date-edit">Date:</label>
     <input type="text" name="date" id="date-edit" value="<%= post.date %>">
     <label for="title-edit">Title:</label>

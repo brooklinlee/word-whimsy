@@ -1,10 +1,10 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
-<main>
+<main id="index-page">
   <h1>Hello, <%= user ? user.profile.name + "!" : "Whimsy!" %></h1>
   <h3>Welcome to Word Whimsy</h3>
-  <div class="white-div">
+  <div class="white-div" id="centered-div">
     <h1>Journaling <br>Anytime <br>Anywhere</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus metus id justo iaculis, eu tincidunt tellus consectetur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus ullamcorper magna in nunc lacinia, vel cursus orci malesuada. Proin in lacus vel purus eleifend feugiat.</p>
   </div>
