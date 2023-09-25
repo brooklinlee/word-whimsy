@@ -2,11 +2,10 @@
 <%- include('../partials/nav') %>
 
 <main>
-<h1>EDIT PAGE</h1>
-<form action="/posts/<%= post._id %>?_method=PUT" method="POST">
   <section>
+<form action="/posts/<%= post._id %>?_method=PUT" method="POST">
     <label for="entry-edit">Edit:</label>
-    <input type="textbox" name="content" id="entry-edit" value="<%= post.content %>">
+    <textarea name="content" id="entry-edit" cols="30" rows="10"><%= post.content %></textarea>
   </section>
   <section>
     <label for="date-edit">Date:</label>
@@ -25,10 +24,10 @@
     </select>
     <label for="public-checkbox-edit">Public:</label>
     <input type="checkbox" name="public" id="public-checkbox" <%= post.public ? 'checked' : '' %> id="public-checkbox-edit">
-  </section>
-  
-  <button type="submit">Save Whimsy</button>
-</form>
+    
+    <button type="submit">Save Whimsy</button>
+  </form>
+</section>
 </main>
 
 <%- include('../partials/footer') %>

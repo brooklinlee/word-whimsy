@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <section class="left-column">
+  <section class="left-column" id="posts-new-left">
   <form action="/posts" method="POST">
     <label for="date-input">Date:</label>
     <input type="date" name="date" id="date-input">
@@ -24,7 +24,6 @@
     <h5>Randomly generated journal prompt here</h5>
     <label for="entry-input">Entry:</br></label>
     <textarea name="content" id="entry-input" cols="30" rows="10" placeholder="Type your Whimsy entry here..."></textarea>
-    <!-- <input type="textbox" name="content" id="entry-input" placeholder="Type your Whimsy entry here ..."> -->
     <p>*required to save Whimsy entry</p>
     <button type="submit">Save Whimsy</button>
   </section>

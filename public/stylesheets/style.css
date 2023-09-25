@@ -67,6 +67,8 @@ main {
   display: flex;
 }
 
+/* posts/index */
+
 #posts-index{
   display: flex;
   height: 100%;
@@ -79,6 +81,10 @@ main {
   display: flex;
   width: 50%;
   flex:1 1 50%;
+  justify-content: flex-start; 
+  align-items: flex-start;
+  flex-direction: column;
+
 }
 
 .right-column {
@@ -92,10 +98,26 @@ main {
   font-size: 35px;
 }
 
-.index-div{
-  /* width: 50%; */
+
+/* posts/new */
+
+.posts-new-left {
+  display: block;
+  white-space: pre-line;
 }
 
-/* .right-column {
-  display: flex;
-} */
+label {
+  display: inline-block; 
+  width: 30%; 
+  text-align: right; 
+  margin-right: 10px; 
+}
+
+input[type="text"],
+input[type="date"],
+select,
+input[type="checkbox"],
+input[type="textbox"] {
+  display: inline-block; 
+  width: 60%; 
+}
