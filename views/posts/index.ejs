@@ -2,12 +2,12 @@
 <%- include('../partials/nav') %>
 
 <main id="posts-index">
-  <section class="left-column">
+  <section id="left-column ">
     <div class="articles">
       <h1><%= user.profile.name %>'s Whimsy</h1>
-      <h4>Whimsy Writer since </h4>
-      <h4>... Whimsy Entries</h4>
-      <h4> Whimsy Entries</h4>
+      <h6>Whimsy Writer since </h6>
+      <h6>... Whimsy Entries</h6>
+      <h6> Whimsy Entries</h6>
       <a href="/posts/new">
         <button type="submit">New Whimsy</button>
       </a>
@@ -15,20 +15,20 @@
   </section>
   <section class="right-column">
     <% posts.forEach(post => { %>
-    <div class="white-div">
+    <div class="white-div" id="index-div">
       <a href="/posts/<%= post._id %>"><h1><%= post.title %></h1></a>
       <p><%= post.author.name %></p>
       <p><%= post.date %></p>
       <p><%= post.feelings%></p>
-      <p><%= post.public ? 'Public' : 'Private' %></p>
-      
+      <p><%= post.public ? 'Public 🔓' : 'Private 🔒' %></p>
+      <span id="posts-index-icons">
         <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
           <button type="submit">❌</button>
         </form>
         <form action="/posts/<%= post._id %>/edit" method="GET">
           <button type="submit">✏️</button>
         </form>
-      
+      </span>
     </div>
     <% }) %>
   </section>

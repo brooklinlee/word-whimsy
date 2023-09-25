@@ -33,17 +33,15 @@ nav {
   align-items: center;
   padding: 10px;
   min-height: 60px;
+  
+}
+
+.right {
+  margin-left: auto;
 }
 
 #nav-logo {
   height: 50px;
-}
-
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
 
 button {
@@ -52,34 +50,47 @@ button {
   border-radius: 4px;
 }
 
-#posts-index{
-  flex-direction: row;
-}
-
-
 .white-div {
-  text-align: center;
+  text-align: left;
   background-color: white;
   color: black;
   border-radius: 20px;
   padding: 30px;
-  margin: 40px;
+  margin: 20px;
+}
+
+main {
+  display: flex;
+}
+
+#posts-index{
+  display: flex;
+  height: 100%;
+  padding: 15px;
+  gap: 5px;
+  
+}
+.left-column {
+  display: flex;
+  width: 50%;
+  flex:1 1 50%;
 }
 
 .right-column {
   display: flex;
+  flex:1 1 50%;
   flex-direction: column-reverse;
-  justify-content: flex-end;
 }
 
 .articles {
-  flex-direction: column-reverse;
+  /* width: 50%; */
+  font-size: 35px;
+}
+
+.index-div{
+  /* width: 50%; */
 }
 
 /* .right-column {
   display: flex;
 } */
-
-.right {
-  margin-left: auto;
-}
