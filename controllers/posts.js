@@ -115,9 +115,14 @@ function show(req, res) {
   .populate('author')
   .populate('comments')
   .then(post => {
-    // console.log(req.body)
     const isSelf = post.author._id.equals(req.user.profile._id)
-    const isAuthor = profile._id.equals(post.comments.commentAuthor)
+    let isAuthor = false
+    for (const comment of post.comments) {
+      if (req.user.profile._id.equals(comment.commentAuthor._id)) {
+        isAuthor = true
+        break
+      }
+    }
     res.render('posts/show', {
     title: `${post.title}`,
     post,
@@ -136,6 +141,8 @@ function createComment(req, res) {
   console.log(req.body)
   Post.findById(req.params.postId)
   .then(post => {
+    // const isAuthor = post.comments.commentAuthor.euqals(req.user.profile._id)
+    req.body.commentAuthor = req.user.profile._id
     post.comments.push(req.body)
     post.save()
     .then(() => {
@@ -173,7 +180,7 @@ function deleteComment(req, res) {
       }
     })
   .catch(err => {
-    console.log('❌')
+    console.log('❌❌')
     console.log(err)
     res.redirect('/')
   })
@@ -190,3 +197,4 @@ export {
   createComment,
   deleteComment,
 }
+
