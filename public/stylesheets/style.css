@@ -59,6 +59,10 @@ button {
   margin: 20px;
 }
 
+#reverse-list {
+  flex-direction: column-reverse;
+}
+
 main {
   display: flex;
 }
@@ -70,6 +74,7 @@ main {
   gap: 5px;
   
 }
+
 .left-column {
   display: flex;
   width: 50%;
@@ -79,7 +84,7 @@ main {
 .right-column {
   display: flex;
   flex:1 1 50%;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 .articles {

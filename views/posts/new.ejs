@@ -2,9 +2,8 @@
 <%- include('../partials/nav') %>
 
 <main>
-<h1>NEW PAGE</h1>
-<form action="/posts" method="POST">
-  <section>
+  <section class="left-column">
+  <form action="/posts" method="POST">
     <label for="date-input">Date:</label>
     <input type="date" name="date" id="date-input">
     <label for="title-input">Title:</label>
@@ -21,14 +20,14 @@
     <label for="public-checkbox">Public:</label>
     <input type="checkbox" name="public"id="public-checkbox">
   </section>
-  <section>
+  <section class="right-column">
     <h5>Randomly generated journal prompt here</h5>
-    <label for="entry-input">Entry:</label>
+    <label for="entry-input">Entry:</br></label>
     <textarea name="content" id="entry-input" cols="30" rows="10" placeholder="Type your Whimsy entry here..."></textarea>
     <!-- <input type="textbox" name="content" id="entry-input" placeholder="Type your Whimsy entry here ..."> -->
+    <p>*required to save Whimsy entry</p>
+    <button type="submit">Save Whimsy</button>
   </section>
-  <p>*required to save Whimsy entry</p>
-  <button type="submit">Save Whimsy</button>
 </form>
 </main>
 

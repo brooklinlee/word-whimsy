@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <main id="posts-index">
-  <section id="left-column ">
+  <section class="left-column ">
     <div class="articles">
       <h1><%= user.profile.name %>'s Whimsy</h1>
       <h6>Whimsy Writer since </h6>
@@ -13,7 +13,7 @@
       </a>
     </div>
   </section>
-  <section class="right-column">
+  <section class="right-column" id="reverse-list">
     <% posts.forEach(post => { %>
     <div class="white-div" id="index-div">
       <a href="/posts/<%= post._id %>"><h1><%= post.title %></h1></a>
