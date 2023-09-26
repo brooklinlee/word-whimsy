@@ -25,22 +25,12 @@ function newPost(req, res) {
   })
 }
 
-// function formatDate(date) {
-//   const today = new Date()
-//   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-//   const day = today.getDate()
-//   const month = today.getMonth()
-//   const year = today.getFullYear()
-//   const formattedDate = `${months[month]} ${day}, ${year}`
-//   return formattedDate
-// }
-
 function create(req, res) {
   req.body.author = req.user.profile._id
   req.body.public = !!req.body.public
-  // for (let key in req.body) {
-  //   if (req.body[key] === '') delete req.body[key]
-  // }
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
   Post.create(req.body)
   .then(post => {
     // post.date = formatDate(post.date)
@@ -110,6 +100,9 @@ function edit(req,res) {
 
 function update(req, res) {
   req.body.public = !!req.body.public
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
   Post.findByIdAndUpdate(req.params.postId, req.body, {new: true})
   .then(post => {
     if(post.author.equals(req.user.profile._id)) {

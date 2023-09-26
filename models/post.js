@@ -12,7 +12,7 @@ const commentSchema = new Schema({
 const postSchema = new Schema({
   date: {
     type: Date,
-    default: Date.now()
+    default: Date.now
   },
   title: {
     type: String,
@@ -24,7 +24,7 @@ const postSchema = new Schema({
   },
   feelings: {
     type: String,
-    enum: ['😄', '😢', '🥳', '😴', '😠', '😎']
+    enum: ['😄', '😢', '🥳', '😴', '😠', '😎', '🥰', '😋', '😂', '🤠']
   },
   comments: [commentSchema],
   public: {

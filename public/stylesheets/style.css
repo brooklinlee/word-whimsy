@@ -20,16 +20,11 @@ html {
 }
 
 body {
-  /* background-color: var(--main-blue); */
   background-image: linear-gradient(to right, #144ECC , #6750CB);
   color: white;
-  /* Use a system font, if none are available use any found sans-sarif font */
   font-family: 'Poppins', sans-serif;
   margin: 0;
 }
-
-
-/* nav bar */
 
 nav {
   background-color: white;
@@ -73,8 +68,6 @@ nav > a {
   left: 10px;
 }
 
-/* buttons */
-
 button {
   background-color: white;
   color: var(--dark-blue);
@@ -89,8 +82,6 @@ button {
 }
 
 button:hover {
-  /* background-color: var(--dark-blue); 
-  color: white; */
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
@@ -108,13 +99,22 @@ button:hover {
   flex-direction: column-reverse;
 }
 
+.gradient-border-bottom {
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 5px;
+  border-image-source: linear-gradient(to left, #191994, #D0D6FF);
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
 label {
   display: inline-block; 
   width: 30%; 
   text-align: right; 
   margin-right: 10px; 
   font-size: 24px;
-  /* font-weight: 600; */
   font-weight: 600;
 }
 
@@ -151,36 +151,6 @@ textarea {
 main {
   display: flex;
 }
-
-/* index */
-
-#index-page {
-  text-align: center;
-  display: block;
-  
-}
-
-#index-page > h1 {
-  padding-top: 70px;
-  font-size: 50px;
-  line-height: 0.8;
-  
-}
-
-#centered-div {
-  margin: 50px auto;
-  padding: 30px 70px;
-  text-align: center;
-  width: 60%;
-}
-
-
-#index-button {
-  padding-bottom: 70px;
-}
-
-/* posts/index */
-
 
 /* posts/new */
 
