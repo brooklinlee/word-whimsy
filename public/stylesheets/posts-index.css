@@ -7,10 +7,10 @@ h1 {
   margin-top: auto;
 }
 
-.emoji {
+/* .emoji {
   font-size: 40px;
   margin: 0;
-}
+} */
 
 #posts-index{
   display: flex;

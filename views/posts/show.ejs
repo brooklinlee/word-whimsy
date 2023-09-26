@@ -3,17 +3,17 @@
 <%- include('../partials/nav') %>
 
 <main id="posts-show-main">
-  <section>
+  <section id="ps-sect-1">
     <h1><%= post.title %></h1>
-    <h3 class="thin-letters"><%= post.author.name %></h3>
+    <p class="thin-letters"><%= post.author.name %></p>
   </section>
-  <section>
+  <section id="ps-sect-2">
     <h1>Date:</h1>
     <h1 class="thin-letters"><%= post.date %></h1>
     <h1>How did you feel? </h1>
-    <h1 class="thin-letters"><%= post.feelings %></h1>
+    <h1 class="emoji"><%= post.feelings %></h1>
   </section>
-  <section>
+  <section id="ps-sect-3">
     <h1>Public? </h1>
     <h1 class="thin-letters"><%= post.public ? 'Public' : 'Private' %></h1>
   </section>
