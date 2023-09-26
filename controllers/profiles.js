@@ -31,13 +31,16 @@ function show(req, res) {
     Post.find({author: req.params.profileId})
     .populate('author')
     .populate('comments')
+    .populate('public')
     .then(posts => {
       const isSelf = profile._id.equals(req.user.profile._id)
+      const hasPublicPosts = posts.some(post => post.public === true)
       res.render('profiles/show', {
       title: 'Profile',
       profile,
       posts,
-      isSelf
+      isSelf, 
+      hasPublicPosts
       })
     })
     .catch(err => {
