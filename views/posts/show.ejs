@@ -6,21 +6,24 @@
   <section id="ps-sect-1">
     <h1><%= post.title %></h1>
     <p class="thin-letters"><%= post.author.name %></p>
+    <hr>
   </section>
   <section id="ps-sect-2">
-    <h1>Date:</h1>
-    <h1 class="thin-letters"><%= post.date %></h1>
-    <h1>How did you feel? </h1>
-    <h1 class="emoji"><%= post.feelings %></h1>
+    <h1 id="date-label">Date:</h1>
+    <p class="thin-letters"><%= post.date %></p>
   </section>
   <section id="ps-sect-3">
-    <h1>Public? </h1>
-    <h1 class="thin-letters"><%= post.public ? 'Public' : 'Private' %></h1>
+    <h1 id="emoji-label">How did you feel? </h1>
+    <p id="show-emoji"><%= post.feelings %></p>
+    <h1 id="privacy-label">Privacy Setting </h1>
+    <p class="thin-letters"><%= post.public ? 'Public 📣' : 'Private 🔑' %></p>
   </section>
-  <section>
+  <section id="ps-sect-4">
+    <article id="content-div">
     <div class="white-div" id="content-display-div">
       <textarea readonly name="content" id="content-display" cols="30" rows="10"><%= post.content %></textarea>
     </div>
+  </article>
     <article class="edit-back-buttons">
       <% if (isSelf) { %>
         <a href="/posts/<%= post._id %>/edit">
