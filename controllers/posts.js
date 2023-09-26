@@ -38,9 +38,9 @@ function newPost(req, res) {
 function create(req, res) {
   req.body.author = req.user.profile._id
   req.body.public = !!req.body.public
-  for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[key]
-  }
+  // for (let key in req.body) {
+  //   if (req.body[key] === '') delete req.body[key]
+  // }
   Post.create(req.body)
   .then(post => {
     // post.date = formatDate(post.date)
@@ -138,7 +138,6 @@ function show(req, res) {
     }
   })
   .then(post => {
-    console.log('🌮', post)
     const isSelf = post.author._id.equals(req.user.profile._id);
     const comments = post.comments
     const userProfileId = req.user.profile._id

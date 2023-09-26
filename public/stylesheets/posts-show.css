@@ -1,3 +1,7 @@
+body {
+  background-image: linear-gradient(to left, #144ECC , #6750CB);
+}
+
 #posts-show-main {
   display: flex;
   flex-wrap: wrap;
@@ -14,10 +18,12 @@ section:nth-child(3n) {
   width: 100%;
 }
 
-button {
-  
-}
 
+
+.edit-back-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .thin-letters {
   font-weight: 300;
@@ -26,8 +32,14 @@ button {
 
 .comment-section {
   padding: 30px;
+  height: fit-content;
 }
 
+
+#content-display-div {
+
+  height: fit-content;
+}
 
 #content-display {
   font-family: 'Poppins', sans-serif;
