@@ -6,7 +6,7 @@
   <section class="left-column">
     <div class="articles">
     <h1><%= isSelf ? "Your" : profile.name + "'s"%> Whimsy</h1>
-    <h3><%= profile.name %> has 
+    <h3><%= isSelf ? "You have " : profile.name + " has "%>
       <% if (posts.length === 0) { %>
         No Whimsy Entries!
         <% } else if (posts.length > 1) { %>
@@ -15,6 +15,9 @@
         <%= posts.length %> Whimsy Entry!
           <% } %>
       </h3>
+      <% if (isSelf === false) { %>
+      <p><em>You can only view public whimsy entries</em></p>
+    <% } %>
     <!-- how many public entries -->
     <a href="javascript:history.back()">
       <button>Back to Writers</button>
@@ -25,7 +28,7 @@
     <% posts.forEach(post => { %>
       <% if (post.public === true || isSelf) { %>
         <div class="white-div" id="index-div">
-          <a href="/posts/<%= post._id %>"><h1 class="gradient-border-bottom"><%= post.title %></h1></a>
+          <a href="/posts/<%= post._id %>"><h1 class="gradient-border-bottom" id="post-title"><%= post.title %></h1></a>
           <p><em><%= post.author.name %></em></p>
           <p><%= post.date %></p>
           <p class="emoji"><%= post.feelings%></p>
