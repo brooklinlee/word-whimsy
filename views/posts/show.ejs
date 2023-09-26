@@ -2,24 +2,24 @@
 <link rel="stylesheet" href="/stylesheets/posts-show.css">
 <%- include('../partials/nav') %>
 
-<main id="post-show">
-  <article class="post-show-top-article">
-    <section class="show-information" id="date-and-title">
+<main id="posts-show-main">
+
+    <section>
       <h1>Date:  </h1>
       <h1><span class="thin-letters"><%= post.date %></span></h1>
       <h1>Title: </h1>
       <h1><span class="thin-letters"><%= post.title %></span></h1>
-    </section>
-    <section class="show-information">
+</section>
+<section>
       <h1>How did you feel? </h1>
       <h1><span class="thin-letters"><%= post.feelings %></span></h1>
-    </section><section class="show-information">
+
       <h1>Public? </h1>
       <h1><span class="thin-letters"><%= post.public ? 'Public' : 'Private' %></span></h1>
-    </section>
-  </article>
+</section>
+<section>
 
-  <div class="white-div" id="post-show-textarea">
+  <div class="white-div" >
     <textarea readonly name="content" id="content-display" cols="30" rows="10"><%= post.content %></textarea>
   </div>
   
@@ -31,7 +31,7 @@
   <a href="javascript:history.back()">
     <button>Go Back</button>
   </a>
-
+</section>
 
   <section id="comment-section">
   <h1>Comments:</h1>
@@ -41,7 +41,7 @@
       <button type="submit">Add Comment</button>
     </form>
   </section>
-
+<section>
   <% post.comments.forEach(comment => { %>
     <div class="white-div">
       <p><%= comment.theComment %></p>
@@ -53,7 +53,7 @@
       <% } %>
     </div>
   <% }) %>
-
+</section>
 </main>
 
 <%- include('../partials/footer') %>

@@ -1,3 +1,24 @@
+#posts-show-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+section {
+  width: 48%;
+  /* height: 100px; */
+  margin-bottom: 2%;
+}
+
+section:nth-child(3n) {
+  width: 100%;
+}
+
+button {
+  
+}
+
+
 .thin-letters {
   font-weight: 300;
   font-size: 25px;
