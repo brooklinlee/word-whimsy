@@ -31,16 +31,45 @@ function create(req, res) {
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]
   }
-  Post.create(req.body)
-  .then(post => {
-    res.redirect('/posts')
-  })
-  .catch(err => {
-    console.log(err)
-    console.log('❌❌❌')
-    res.redirect('/posts/new')
-  })
+  const newPost = new Post(req.body)
+  newPost.save()
+    .then(post => {
+      Profile.findByIdAndUpdate(
+        req.user.profile._id,
+        { $push: { posts: post._id } },
+        { new: true }
+      )
+        .then(updatedProfile => {
+          res.redirect('/posts')
+        })
+        .catch(err => {
+          console.log(err)
+          res.redirect('/posts/new')
+        })
+    })
+    .catch(err => {
+      console.log(err)
+      console.log('❌')
+      res.redirect('/posts/new')
+    })
 }
+
+// function create(req, res) {
+//   req.body.author = req.user.profile._id
+//   req.body.public = !!req.body.public
+//   for (let key in req.body) {
+//     if (req.body[key] === '') delete req.body[key]
+//   }
+//   Post.create(req.body)
+//   .then(post => {
+//     res.redirect('/posts')
+//   })
+//   .catch(err => {
+//     console.log(err)
+//     console.log('❌❌❌')
+//     res.redirect('/posts/new')
+//   })
+// }
 
 function index(req, res) {
   Post.find({author: req.user.profile._id})
