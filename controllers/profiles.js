@@ -3,7 +3,12 @@ import { Post } from "../models/post.js"
 
 function index(req, res) {
   Profile.find({})
+  .populate({
+    path: 'posts',
+    model: 'Post', 
+  })
   .then(profiles => {
+    // Post.find({})
     res.render('profiles/index', {
     profiles,
     title: 'All WW Writers',

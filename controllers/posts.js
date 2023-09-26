@@ -33,7 +33,6 @@ function create(req, res) {
   }
   Post.create(req.body)
   .then(post => {
-    // post.date = formatDate(post.date)
     res.redirect('/posts')
   })
   .catch(err => {
