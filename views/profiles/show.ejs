@@ -1,29 +1,33 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
-  <section>
+<main id="posts-index">
+  <section class="left-column">
+    <div class="articles">
     <h1><%= isSelf ? "Your" : profile.name + "'s"%> Whimsy</h1>
-    <!-- how many entries -->
+    <h6><%= profile.name %> has <%= posts.length %> Whimsy Entries!</h6>
     <!-- how many public entries -->
     <a href="javascript:history.back()">
       <button>Back to Writers</button>
     </a>
+  </div>
   </section>
-  <section>
+  <section class="right-column" id="reverse-list">
     <% posts.forEach(post => { %>
       <% if (post.public === true || isSelf) { %>
-        <div class="white-div">
+        <div class="white-div" id="index-div">
           <a href="/posts/<%= post._id %>"><h1><%= post.title %></h1></a>
           <p><%= post.author.name %></p>
           <p><%= post.public ? 'Public' : 'Private' %></p>
           <% if (isSelf) { %>
+            <span id="posts-index-icons">
             <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
               <button type="submit">❌</button>
             </form>
             <form action="/posts/<%= post._id %>/edit" method="GET">
               <button type="submit">✏️</button>
             </form>
+          </span>
             <% } %>
           </div>
           <% } %>
