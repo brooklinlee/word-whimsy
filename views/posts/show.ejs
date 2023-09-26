@@ -1,7 +1,8 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
+<main id="post-show">
+  <article class="top-article">
   <section>
     <h2>Date:</h2>
     <h3><%= post.date %></h3>
@@ -13,7 +14,7 @@
     <h3><%= post.public ? 'Public' : 'Private' %></h3>
   </section>
   <section class="white-div">
-    <p><%= post.content %></p>
+    <textarea readonly name="content" id="content-display" cols="30" rows="10"><%= post.content %></textarea>
   </section>
   
   <% if (isSelf) { %>
@@ -25,6 +26,8 @@
     <button>Go Back</button>
   </a>
 <section>
+</article>
+<article class="bottom-article">
 <h3>Comments:</h3>
   <form action="/posts/<%= post._id %>/comments" method="POST">
     <label for="comment-input"></label>
@@ -37,7 +40,7 @@
   <% post.comments.forEach(comment => { %>
     <div class="white-div">
       <p><%= comment.theComment %></p>
-      <p><%= comment.commentAuthor.name %></p>
+      <p><em><%= comment.commentAuthor.name %></em></p>
       <% if (isSelf || userProfileId.equals(comment.commentAuthor._id)) { %>
         <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
           <button type="submit">❌</button>
@@ -46,6 +49,7 @@
     </div>
   <% }) %>
 </section>
+</article>
 </main>
 
 <%- include('../partials/footer') %>

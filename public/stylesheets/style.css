@@ -26,6 +26,9 @@ body {
   margin: 0;
 }
 
+
+/* nav bar */
+
 nav {
   background-color: white;
   color: black;
@@ -68,12 +71,14 @@ nav > a {
   left: 10px;
 }
 
+/* buttons */
+
 button {
   background-color: white;
   color: var(--dark-blue);
   border-radius: 24px;
   padding: 16px 32px;
-  margin: 4px 2px;
+  /* margin: 4px 2px; */
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -138,6 +143,7 @@ textarea {
   box-sizing: border-box;
   font-size: 15px;
   border-radius: 4px;
+  resize: none;
 }
 
 main {
@@ -188,14 +194,14 @@ main {
   justify-content: flex-start; 
   align-items: flex-start;
   flex-direction: column;
-  margin: 24px auto;
+  margin: 24px;
 }
 
 .right-column {
   display: flex;
   flex:1 1 50%;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 24px 24px 24px 0px;
 }
 
 .articles {
@@ -214,21 +220,15 @@ main {
 }
 
 #index-div > a:hover {
-
+  box-shadow: 0 12px 16px 0 --light-blue, 0 17px 50px 0 --light-blue;
 }
 
 /* posts/new */
-
-/* #posts-new {
-  background-color: var(--dark-blue);
-} */
 
 .posts-new-left {
   display: block;
   white-space: pre-line;
 }
-
-
 
 /* posts/edit */
 
@@ -236,15 +236,27 @@ main {
   margin-left: 24px;
 }
 
-/* #left-column > label, input {
-  display: inline-block;
-  text-align: left;
-} */
-
 #posts-edit > section {
   display: inline-block;
 }
 
-/* #posts-edit > button {
+#posts-edit > button {
   
-} */
+}
+
+/* post/show */
+
+#post-show {
+  display: flex;
+  flex-direction: column;
+}
+
+#content-display {
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  resize: none;
+}
+
+#content-display:hover {
+  border: none;
+}
