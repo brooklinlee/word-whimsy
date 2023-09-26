@@ -10,12 +10,15 @@ body {
 
 section {
   width: 48%;
-  /* height: 100px; */
   margin-bottom: 2%;
 }
 
-section:nth-child(3n) {
+section:nth-child(3n - 2) {
   width: 100%;
+}
+
+section:nth-child(3n) {
+  width: 48%;
 }
 
 .edit-back-buttons {
