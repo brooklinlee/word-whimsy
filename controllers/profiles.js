@@ -13,7 +13,7 @@ function index(req, res) {
     profiles,
     title: 'All WW Writers',
     getRandomIcon: () => {
-      const icons = ['✏️', '📃', '🍎', '📓', '📚', '🖋️']
+      const icons = ['✏️', '📃', '🍎', '📓', '📚', '🖋️', '📝', '🤓', '📖', '📕', '📙']
       return icons[Math.floor(Math.random() * icons.length)]
       }
     })

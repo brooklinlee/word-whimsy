@@ -4,15 +4,21 @@
 
 <main id="profiles-index-main">
   <% profiles.forEach(profile => { %>
-    <div class="white-div" class="profiles-index-div">
-      <section>
+    <div class="white-div" id="profiles-index-div">
+      <section id="profiles-icon">
+        <p><%= getRandomIcon() %></p>
+      </section>
+      <section id="profiles-index-text">
         <a href="/profiles/<%= profile._id %>"><h1><%= profile.name %></h1></a>
-        <!-- number of posts -->
-        <p><%= profile.posts.length %></p>
+        <% if (profile.posts.length === 0) { %>
+          No Whimsy Entries
+          <% } else if (profile.posts.length > 1) { %>
+            <%= profile.posts.length %> Whimsy Entries
+        <% } else { %>
+          <%= profile.posts.length %> Whimsy Entry
+            <% } %>
       </section>
-      <section>
-        <%= getRandomIcon() %>
-      </section>
+      
     </div>
   <% }) %>
 </main>

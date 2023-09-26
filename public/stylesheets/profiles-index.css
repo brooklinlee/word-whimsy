@@ -1,11 +1,39 @@
-#profiles-index-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+body {
+  background-image: linear-gradient(to left, #144ECC , #6750CB);
 }
 
-.profiles-index-main {
+
+a {
+  color: var(--main-blue);
+  text-decoration: none;
+  font-size: 24px;
+}
+
+#profiles-index-main {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+#profiles-index-div {
   width: 32%;
-  padding-bottom: 18%; /* 32:18, i.e. 16:9 */
-  margin-bottom: 2%; /* (100-32*3)/2 */
+  display: flex;
+  padding: 15px;
+  gap: 5px;
+}
+
+/* section{
+  border: 1px solid red;
+} */
+
+#profiles-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  padding: 15px;
+  gap: 5px;
+}
+#profiles-index-text {
+  padding-left: 4px;
 }
