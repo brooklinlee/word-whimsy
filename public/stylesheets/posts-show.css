@@ -18,8 +18,6 @@ section:nth-child(3n) {
   width: 100%;
 }
 
-
-
 .edit-back-buttons {
   display: flex;
   justify-content: space-evenly;

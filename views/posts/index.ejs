@@ -1,10 +1,13 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/posts-index.css">
 <%- include('../partials/nav') %>
 
 <main id="posts-index">
   <section class="left-column">
     <div class="articles">
+      <span id="bottom-border-gradient">
       <h1><%= user.profile.name %>'s Whimsy</h1>
+    </span>
       <h6>You have <%= posts.length %> Whimsy Entries!</h6>
       <a href="/posts/new">
         <button type="submit">New Whimsy</button>
@@ -14,12 +17,12 @@
   <section class="right-column" id="reverse-list">
     <% posts.forEach(post => { %>
     <div class="white-div" id="index-div">
-      <a href="/posts/<%= post._id %>"><h1><%= post.title %></h1></a>
-      <p><%= post.author.name %></p>
+      <a href="/posts/<%= post._id %>" ><h1 class="gradient-border-bottom" ><%= post.title %></h1></a>
+      <p ><%= post.author.name %></p>
       <p><%= post.date %></p>
       <p><%= post.feelings%></p>
       <p><%= post.public ? 'Public 🔓' : 'Private 🔒' %></p>
-      <span id="posts-index-icons">
+      <span  id="posts-index-icons">
         <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
           <button type="submit">❌</button>
         </form>

@@ -1,4 +1,5 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/posts-index.css">
 <%- include('../partials/nav') %>
 
 <main id="posts-index">
@@ -16,7 +17,7 @@
     <% posts.forEach(post => { %>
       <% if (post.public === true || isSelf) { %>
         <div class="white-div" id="index-div">
-          <a href="/posts/<%= post._id %>"><h1><%= post.title %></h1></a>
+          <a href="/posts/<%= post._id %>"><h1 class="gradient-border-bottom"><%= post.title %></h1></a>
           <p><%= post.author.name %></p>
           <p><%= post.public ? 'Public' : 'Private' %></p>
           <% if (isSelf) { %>
