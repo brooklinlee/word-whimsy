@@ -2,8 +2,6 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-
-
 const commentSchema = new Schema({
   theComment: String,
   commentAuthor: { type: Schema.Types.ObjectId, ref: 'Profile' }
@@ -14,7 +12,7 @@ const commentSchema = new Schema({
 const postSchema = new Schema({
   date: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   },
   title: {
     type: String,

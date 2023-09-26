@@ -2,20 +2,25 @@
 <%- include('../partials/nav') %>
 
 <main id="post-show">
-  <article class="top-article">
-  <section>
-    <h2>Date:</h2>
-    <h3><%= post.date %></h3>
-    <h2>Title:</h2>
-    <h3><%= post.title %></h3>
-    <h2>How did you feel?</h2>
-    <h3><%= post.feelings %></h3>
-    <h2>Public:</h2>
-    <h3><%= post.public ? 'Public' : 'Private' %></h3>
-  </section>
-  <section class="white-div">
+  <article class="post-show-top-article">
+    <section class="show-information" id="date-and-title">
+      <h1>Date:  </h1>
+      <h1><span class="thin-letters"><%= post.date %></span></h1>
+      <h1>Title: </h1>
+      <h1><span class="thin-letters"><%= post.title %></span></h1>
+    </section>
+    <section class="show-information">
+      <h1>How did you feel? </h1>
+      <h1><span class="thin-letters"><%= post.feelings %></span></h1>
+    </section><section class="show-information">
+      <h1>Public? </h1>
+      <h1><span class="thin-letters"><%= post.public ? 'Public' : 'Private' %></span></h1>
+    </section>
+  </article>
+
+  <div class="white-div" id="post-show-textarea">
     <textarea readonly name="content" id="content-display" cols="30" rows="10"><%= post.content %></textarea>
-  </section>
+  </div>
   
   <% if (isSelf) { %>
     <a href="/posts/<%= post._id %>/edit">
@@ -25,17 +30,17 @@
   <a href="javascript:history.back()">
     <button>Go Back</button>
   </a>
-<section>
-</article>
-<article class="bottom-article">
-<h3>Comments:</h3>
-  <form action="/posts/<%= post._id %>/comments" method="POST">
-    <label for="comment-input"></label>
-    <textarea name="theComment" id="comment-input" cols="30" rows="10" placeholder="Commenting as <%= user.profile.name %>..."></textarea>
-    <button type="submit">Add Comment</button>
-  </form>
-</section>
-<section>
+
+
+  <section id="comment-section">
+  <h1>Comments:</h1>
+    <form action="/posts/<%= post._id %>/comments" method="POST" class="right-column">
+      <label for="comment-input"></label>
+      <textarea name="theComment" id="comment-input" cols="30" rows="10" placeholder="Commenting as <%= user.profile.name %>..."></textarea>
+      <button type="submit">Add Comment</button>
+    </form>
+  </section>
+
   <!-- comments go here -->
   <% post.comments.forEach(comment => { %>
     <div class="white-div">
@@ -48,8 +53,7 @@
       <% } %>
     </div>
   <% }) %>
-</section>
-</article>
+
 </main>
 
 <%- include('../partials/footer') %>
