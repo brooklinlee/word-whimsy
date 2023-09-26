@@ -8,8 +8,6 @@
   border-top: 0;
 }
 
-
-
 #posts-index{
   display: flex;
   height: 100%;
@@ -33,11 +31,6 @@
   flex:1 1 50%;
   flex-direction: column;
   margin: 24px 24px 24px 0px;
-}
-
-.articles {
-  /* width: 50%; */
-  font-size: 35px;
 }
 
 #index-div > a {

@@ -3,58 +3,54 @@
 <%- include('../partials/nav') %>
 
 <main id="posts-show-main">
-
-    <section>
-      <h1>Date:  </h1>
-      <h1><span class="thin-letters"><%= post.date %></span></h1>
-      <h1>Title: </h1>
-      <h1><span class="thin-letters"><%= post.title %></span></h1>
-</section>
-<section>
-      <h1>How did you feel? </h1>
-      <h1><span class="thin-letters"><%= post.feelings %></span></h1>
-
-      <h1>Public? </h1>
-      <h1><span class="thin-letters"><%= post.public ? 'Public' : 'Private' %></span></h1>
-</section>
-<section>
-
-  <div class="white-div" id="content-display-div">
-    <textarea readonly name="content" id="content-display" cols="30" rows="10"><%= post.content %></textarea>
-  </div>
-  <article class="edit-back-buttons">
-  <% if (isSelf) { %>
-    <a href="/posts/<%= post._id %>/edit">
-      <button>Edit Post</button>
-    </a>
-  <% } %>
-  <a href="javascript:history.back()">
-    <button>Go Back</button>
-  </a>
-  </article>
-</section>
-
+  <section>
+    <h1>Date:  </h1>
+    <h1><span class="thin-letters"><%= post.date %></span></h1>
+    <h1>Title: </h1>
+    <h1><span class="thin-letters"><%= post.title %></span></h1>
+  </section>
+  <section>
+    <h1>How did you feel? </h1>
+    <h1><span class="thin-letters"><%= post.feelings %></span></h1>
+    <h1>Public? </h1>
+    <h1><span class="thin-letters"><%= post.public ? 'Public' : 'Private' %></span></h1>
+  </section>
+  <section>
+    <div class="white-div" id="content-display-div">
+      <textarea readonly name="content" id="content-display" cols="30" rows="10"><%= post.content %></textarea>
+    </div>
+    <article class="edit-back-buttons">
+      <% if (isSelf) { %>
+        <a href="/posts/<%= post._id %>/edit">
+          <button>Edit Post</button>
+        </a>
+      <% } %>
+      <a href="javascript:history.back()">
+        <button>Go Back</button>
+      </a>
+    </article>
+  </section>
   <section id="comment-section">
-  <h1>Comments:</h1>
+    <h1>Comments:</h1>
     <form action="/posts/<%= post._id %>/comments" method="POST" class="right-column">
       <label for="comment-input"></label>
       <textarea name="theComment" id="comment-input" cols="30" rows="10" placeholder="Commenting as <%= user.profile.name %>..."></textarea>
       <button type="submit">Add Comment</button>
     </form>
   </section>
-<section>
-  <% post.comments.forEach(comment => { %>
-    <div class="white-div">
-      <p><%= comment.theComment %></p>
-      <p><em><%= comment.commentAuthor.name %></em></p>
-      <% if (isSelf || userProfileId.equals(comment.commentAuthor._id)) { %>
-        <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-          <button type="submit">❌</button>
-        </form>
-      <% } %>
-    </div>
-  <% }) %>
-</section>
+  <section>
+    <% post.comments.forEach(comment => { %>
+      <div class="white-div">
+        <p><%= comment.theComment %></p>
+        <p><em><%= comment.commentAuthor.name %></em></p>
+        <% if (isSelf || userProfileId.equals(comment.commentAuthor._id)) { %>
+          <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+            <button type="submit">❌</button>
+          </form>
+        <% } %>
+      </div>
+    <% }) %>
+  </section>
 </main>
 
 <%- include('../partials/footer') %>
