@@ -1,0 +1,19 @@
+.thin-letters {
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.comment-section {
+  padding: 30px;
+}
+
+
+#content-display {
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  resize: none;
+}
+
+#content-display:hover {
+  border: none;
+}

@@ -247,8 +247,8 @@ main {
 }
 
 /* post/show */
-#post-show {
-  /* border: 1px solid black; */
+/* #post-show {
+  border: 1px solid black;
   display: flex;
   justify-content: space-around; 
   align-items: stretch; 
@@ -275,36 +275,14 @@ main {
 }
 
 .show-information{
-  /* border: 1px solid red; */
+  border: 1px solid red;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   padding: 15px;
   gap: 5px;
-  /* line-height: 0; */
 }
 
 #date-and-title {
   line-height: 0;
-}
-
-.thin-letters {
-  font-weight: 300;
-  font-size: 25px;
-}
-
-.comment-section {
-  padding: 30px;
-}
-
-
-#content-display {
-  font-family: 'Poppins', sans-serif;
-  border: none;
-  resize: none;
-}
-
-#content-display:hover {
-  border: none;
-}
-
+} */
