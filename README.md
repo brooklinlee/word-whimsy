@@ -42,3 +42,13 @@ Online journaling with Word Whimsy isn't just about writing down your thoughts; 
 - **JavaScript** 
 - **CSS styling** 
 - **Git version control** 
+
+#### View the full Trello Board used for Project Planning [here](https://trello.com/b/VKRw8Ujj/word-whimsy)
+
+![image of Trello board used for project planning](public/assets/trello.png)
+
+## Ice Box 🧊
+ - [ ] Add in responsive design to make the application easy to view and use on multiple screen sizes
+ - [ ] Add search capability in the profiles view to be able to find others easier
+  - [ ] Create "following" functionality to be able to follow your friends and view their Whimsy posts easier
+  - [ ] Create tag functionality to add tags to your post, then be able to search through Whimsy posts based on those tags
