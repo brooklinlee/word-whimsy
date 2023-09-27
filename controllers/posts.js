@@ -250,51 +250,6 @@ function updateComment(req, res) {
   })
 }
 
-
-// function updateComment(req, res) {
-//   Post.findById(req.params.postId)
-//   .populate('comments')
-//   .populate({
-//     path: 'comments',
-//     populate: {
-//     path: 'theComment'
-//     }
-//   })
-//   .then(post => {
-//     post.comments.theComment.reaplace(req.body)
-//     post.save()
-//   })
-//   .then(() => {
-//     res.redirect(`/posts/${post._id}`)
-//   })
-//   .catch(err => {
-//     console.log('❌')
-//     console.log(err)
-//     res.redirect('/')
-//   })
-// })
-// .catch(err => {
-//   console.log('❌')
-//   console.log(err)
-//   res.redirect('/')
-// })
-// }
-
-
-// function updateComment(req, res) {
-//   Comment.findByIdAndUpdate(req.params.commentId, { theComment: req.body.theComment }, {new: true})
-//   .then(() => {
-//       res.redirect(`/posts/${post._id}`)
-//     })
-//     .catch(err => {
-//       console.log('❌')
-//       console.log(err)
-//       res.redirect('/')
-//     })
-//   }
-
-
-
 export {
   newPost as new,
   create,
