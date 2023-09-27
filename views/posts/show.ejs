@@ -12,9 +12,11 @@
     <h1 id="date-label">Date:</h1>
     <p class="thin-letters"><%= post.date %></p>
   </section>
-  <section id="ps-sect-3">
+  <section>
     <h1 id="emoji-label">How did you feel? </h1>
     <p id="show-emoji"><%= post.feelings %></p>
+  </section>
+  <section id="ps-sect-3">
     <h1 id="privacy-label">Privacy Setting </h1>
     <p class="thin-letters"><%= post.public ? 'Public 📣' : 'Private 🔑' %></p>
   </section>
@@ -35,26 +37,29 @@
       </a>
     </article>
   </section>
-  <section id="comment-section">
+  <section id="ps-sect-5">
     <h1>Comments:</h1>
   </section>
-  <section>
-    <form action="/posts/<%= post._id %>/comments" method="POST" class="right-column">
-      <label for="comment-input"></label>
-      <textarea name="theComment" id="comment-input" cols="30" rows="10" placeholder="Commenting as <%= user.profile.name %>..."></textarea>
-      <button type="submit">Add Comment</button>
-    </form>
-  </section>
+  <form action="/posts/<%= post._id %>/comments" method="POST" >
+    <label for="comment-input"></label>
+    <textarea name="theComment" id="comment-input" cols="30" rows="10" placeholder="Commenting as <%= user.profile.name %>..."></textarea>
+    <button type="submit">Add Comment</button>
+  </form>
   <section>
     <% post.comments.forEach(comment => { %>
       <div class="white-div">
         <p><%= comment.theComment %></p>
-        <p><em><%= comment.commentAuthor.name %></em></p>
+        <p id="comment-authors-name"><em><%= comment.commentAuthor.name %></em></p>
+        <article id="form-buttons-section">
         <% if (isSelf || userProfileId.equals(comment.commentAuthor._id)) { %>
           <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-            <button type="submit">❌</button>
+            <button type="submit" class="form-buttons">❌</button>
           </form>
         <% } %>
+        <% if (userProfileId.equals(comment.commentAuthor._id)) { %>
+          <button type="submit" class="form-buttons">✏️</button>
+        <% } %>
+        </article>
       </div>
     <% }) %>
   </section>

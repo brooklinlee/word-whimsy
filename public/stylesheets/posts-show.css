@@ -21,26 +21,45 @@ body {
 section {
   width: 40%;
   text-align: center;
-  /* margin-bottom: 2%; */
   /* border: 1px solid blue; */
 }
 
-section:nth-child(3n - 2) {
+section:nth-child(1) {
   width: 100%;
 }
 
-section:nth-child(3n) {
-  width: 40%;
+section:nth-child(n + 2):nth-child(-n + 4) {
+  width: 30%; 
+}
+
+section:nth-child(5) {
+  width: 100%;
+}
+
+section:nth-child(6) {
+  width: 100%;
+}
+
+section:nth-child(7):nth-child(8) {
+  width: 40%; 
+}
+
+section:nth-child(9) {
+  width: 100%;
 }
 
 p {
-  font-size: 28px;
+  font-size: 20px;
   margin: 0;
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 20px;
   /* margin-bottom: 0; */
+}
+
+.thin-letters {
+  font-weight: 300;
 }
 
 hr {
@@ -75,21 +94,6 @@ hr {
   margin: 0;
 }
 
-#ps-sect-3 {
-  
-}
-
-.edit-back-buttons {
-  display: flex;
-  justify-content: space-evenly;
-  margin: auto;
-}
-
-.thin-letters {
-  font-weight: 300;
-  /* font-size: 25px; */
-}
-
 #content-display-div {
   margin: 40px auto;
   height: fit-content;
@@ -109,8 +113,37 @@ hr {
   border: none;
 }
 
-.comment-section {
-  padding: 30px;
-  height: fit-content;
-  /* width: 80%; */
+.edit-back-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+#ps-sect-5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ps-sect-5 > h1 {
+  font-size: 48px;
+}
+
+#ps-sect-6 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#comment-authors-name {
+  font-size: 16px;
+}
+
+#form-buttons-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.form-buttons {
+  font-size: 10px;
+  padding: 8px;
 }
