@@ -234,12 +234,12 @@ function updateComment(req, res) {
     }
   })
   .then(post => {
-    const commentToUpdate = post.comments.find(comment => comment._id.equals(commentId))
+    const commentToUpdate = post.comments.find(comment => comment._id.equals(req.params.commentId))
     if(commentToUpdate) {
       commentToUpdate.theComment = req.body.theComment
       return post.save()
       .then(() => {
-        res.redirect(`/posts/${postId}`);
+        res.redirect(`/posts/${req.params.postId}`);
       })
     }
   })
