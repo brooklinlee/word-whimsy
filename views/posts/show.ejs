@@ -1,6 +1,5 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/posts-show.css">
-<script defer src="/stylesheets/global-functions.js"></script>
 <%- include('../partials/nav') %>
 
 <main id="posts-show-main">
@@ -64,7 +63,7 @@
         <% } %>
 
         <% if (userProfileId.equals(comment.commentAuthor._id)) { %>
-          <button type="submit" class="form-buttons" class="edit-btn">✏️</button>
+          <button type="submit" class="form-buttons" id="edit-btn">✏️</button>
           
         </article>
 
