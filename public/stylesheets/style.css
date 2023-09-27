@@ -156,26 +156,3 @@ textarea {
 main {
   display: flex;
 }
-
-
-
-/* posts/new */
-
-
-
-/* posts/edit */
-
-#entry-edit {
-  margin-left: 24px;
-}
-
-#posts-edit > section {
-  display: inline-block;
-}
-
-#posts-edit > button {
-  
-}
-
-
-

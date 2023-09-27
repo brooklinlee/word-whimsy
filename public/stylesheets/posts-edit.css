@@ -1,0 +1,28 @@
+.centered {
+  text-align: center;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* Add spacing between sections if needed */
+}
+
+#posts-edit {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#div-1 {
+  width: 100%;
+}
+
+#div-2, #div-3, #div-4, #div-5 {
+  flex-basis: 23%;
+}
+
+#div-6 {
+  width: 100%;
+}
