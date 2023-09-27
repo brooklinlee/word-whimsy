@@ -1,0 +1,36 @@
+h1 {
+  font-size: 48px;
+}
+
+#posts-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+
+#new-post-sec-1, #new-post-sec-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+
+#new-post-sec-3 {
+  text-align: center;
+  width: 100%;
+}
+
+.form-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  width: 100%;
+}
+
+#new-post-sec-3 {
+  text-align: center;
+}
