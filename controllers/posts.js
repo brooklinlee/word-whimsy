@@ -225,6 +225,76 @@ function deleteComment(req, res) {
   })
 }
 
+function updateComment(req, res) {
+  Post.findById(req.params.postId)
+  .populate({
+    path: 'comments',
+    populate: {
+    path: 'commentId'
+    }
+  })
+  .then(post => {
+    const commentToUpdate = post.comments.find(comment => comment._id.equals(commentId))
+    if(commentToUpdate) {
+      commentToUpdate.theComment = req.body.theComment
+      return post.save()
+      .then(() => {
+        res.redirect(`/posts/${postId}`);
+      })
+    }
+  })
+  .catch(err => {
+    console.log('❌')
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+
+// function updateComment(req, res) {
+//   Post.findById(req.params.postId)
+//   .populate('comments')
+//   .populate({
+//     path: 'comments',
+//     populate: {
+//     path: 'theComment'
+//     }
+//   })
+//   .then(post => {
+//     post.comments.theComment.reaplace(req.body)
+//     post.save()
+//   })
+//   .then(() => {
+//     res.redirect(`/posts/${post._id}`)
+//   })
+//   .catch(err => {
+//     console.log('❌')
+//     console.log(err)
+//     res.redirect('/')
+//   })
+// })
+// .catch(err => {
+//   console.log('❌')
+//   console.log(err)
+//   res.redirect('/')
+// })
+// }
+
+
+// function updateComment(req, res) {
+//   Comment.findByIdAndUpdate(req.params.commentId, { theComment: req.body.theComment }, {new: true})
+//   .then(() => {
+//       res.redirect(`/posts/${post._id}`)
+//     })
+//     .catch(err => {
+//       console.log('❌')
+//       console.log(err)
+//       res.redirect('/')
+//     })
+//   }
+
+
+
 export {
   newPost as new,
   create,
@@ -235,5 +305,6 @@ export {
   show,
   createComment,
   deleteComment,
+  updateComment,
 }
 

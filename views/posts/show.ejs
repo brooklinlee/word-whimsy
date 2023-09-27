@@ -59,7 +59,12 @@
         <% } %>
         <% if (userProfileId.equals(comment.commentAuthor._id)) { %>
           <button type="submit" class="form-buttons">✏️</button>
-        
+          
+          <form action="/posts/<%= post._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+            <input type="text" name="theComment" value="<%= comment.theComment %>">
+            <button type="submit">Update Comment</button>
+          </form>
+          
         <% } %>
         </article>
       </div>
