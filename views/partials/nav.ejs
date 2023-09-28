@@ -3,10 +3,10 @@
   <% } %>
 </head>
 <body>
-  <nav>
+  <nav class="layout">
     <a href="/"><img src="/assets/ww-logo.png" alt="Word whimsy logo" id="nav-logo"></a>
     <% if (user) { %>
-      <a href="/posts" id="my-whimsy">My Whimsy</a>
+      <a href="/posts" id="my-whimsy" class="marginLeft">My Whimsy</a>
       <a href="/posts/new" id="new-entry">New Entry</a>
       <a href="/profiles" id="writers">Writers</a>
       <a href="/auth/logout" id="logout">Logout</a>
