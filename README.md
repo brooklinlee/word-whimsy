@@ -47,6 +47,11 @@ Online journaling with Word Whimsy isn't just about writing down your thoughts; 
 
 ![image of Trello board used for project planning](public/assets/trello.png)
 
+## Credits 🥳
+- **Trello** for project planning
+- **Whimsical** for ERD creation
+- **Canva** for wireframing
+
 ## Ice Box 🧊
  - [ ] Add in responsive design to make the application easy to view and use on multiple screen sizes
  - [ ] Add search capability in the profiles view to be able to find others easier
