@@ -6,6 +6,7 @@
 <main id="posts-new">
   <div class="div-1">
   <h1 class="centered">New Whimsy Entry</h1>
+  <hr>
 </div>
 <section class="flex-row">
   <div class="div-2">
@@ -17,9 +18,9 @@
       <label for="title-input">Title:</label>
       <input type="text" name="title" id="title-input" placeholder="Whimsy Name">
     </div> 
-    <div class="div-4"> 
-      <label for="feelings-input" class="non-inline-label">Today I am Feeling:</label>
-      <select name="feelings" id="feelings-input" class="non-inline-label">
+    <div class="div-4" > 
+      <label for="feelings-input" >Feelings:</label>
+      <select name="feelings" id="feelings-input" >
         <option value="😄">😄</option>
         <option value="😢">😢</option>
         <option value="🥳">🥳</option>
@@ -32,19 +33,19 @@
         <option value="🤠">🤠</option>
       </select>
     </div>
-    <div class="div-5"> 
+    <div class="div-5" id="checkbox-div"> 
       <label for="public-checkbox">Public:</label>
       <input type="checkbox" name="public"id="public-checkbox">
     </div> 
   </section>
-  <div class="div-6" class="centered"> 
+  <div class="div-6 centered"> 
       <h2 class="centered">Need a hand? Try writing about this!</h2>
       <h3 class="centered"><em><%= getRandomJournalPrompt() %></em></h3>
     </div>
     <div class="div-7" class="centered">
+      <label for="entry-input" class="non-inline-label">Entry:</label>
     </div>
-    <div class="div-8" class="centered">
-      <label for="entry-input" class="centered" class="non-inline-label">Entry:</label>
+    <div class="div-8 centered">
       <textarea name="content" id="entry-input" cols="30" rows="10" placeholder="Type your Whimsy entry here..."></textarea>
       <p class="centered">*required to save Whimsy entry</p>
       <button type="submit" class="centered">Save Whimsy</button>

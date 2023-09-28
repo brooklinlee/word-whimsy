@@ -159,6 +159,12 @@ textarea {
   resize: none;
 }
 
+hr {
+  margin-top: 24px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
 main {
   display: flex;
 }
