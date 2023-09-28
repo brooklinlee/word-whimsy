@@ -19,7 +19,16 @@ function newPost(req, res) {
       'Reflect on a mistake you\'ve made and the lessons it taught you.',
       'Describe your ideal day from start to finish.',
       'List three things you can do to take better care of yourself.',
-      'Write about a place you\'d love to visit someday and what you hope to experience there.' ]
+      'Write about a place you\'d love to visit someday and what you hope to experience there.',
+      'Write about a time you faced a difficult decision and how you made your choice.',
+      'Describe a place in nature that brings you a sense of peace and tranquility.',
+      'List three personal goals you\'d like to achieve in the next year and why they\'re important to you.',
+      'Write a letter to your past self, giving advice or encouragement.',
+      'Reflect on a recent challenge or obstacle you\'ve encountered and how you overcame it.',
+      'Write about a favorite childhood memory and the emotions it brings back.',
+      'Describe a book or movie that profoundly influenced your perspective on life.',
+      'List three things you\'re currently grateful for and why they bring you joy.',
+      'Write a short story based on a dream you\'ve had, or an imaginary adventure.' ]
       return prompts[Math.floor(Math.random() * prompts.length)]
     }
   })
@@ -54,23 +63,6 @@ function create(req, res) {
     })
 }
 
-// function create(req, res) {
-//   req.body.author = req.user.profile._id
-//   req.body.public = !!req.body.public
-//   for (let key in req.body) {
-//     if (req.body[key] === '') delete req.body[key]
-//   }
-//   Post.create(req.body)
-//   .then(post => {
-//     res.redirect('/posts')
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     console.log('❌❌❌')
-//     res.redirect('/posts/new')
-//   })
-// }
-
 function index(req, res) {
   Post.find({author: req.user.profile._id})
   .populate('author')
@@ -83,7 +75,7 @@ function index(req, res) {
     })
   })
   .catch(err => {
-    console.log('❌❌❌')
+    console.log('❌')
     console.log(err)
     res.redirect('/')
   })
@@ -102,6 +94,7 @@ function deletePost(req, res) {
     }
   })
   .catch(err => {
+    console.log('❌')
     console.log(err)
     res.redirect('/posts')
   })  
@@ -120,8 +113,8 @@ function edit(req,res) {
     }
   })
   .catch(err => {
+    console.log('❌')
     console.log(err)
-    console.log('❌❌❌')
     res.redirect('/')
   })
 }
@@ -178,7 +171,6 @@ function show(req, res) {
 }
 
 function createComment(req, res) {
-  console.log(req.body)
   Post.findById(req.params.postId)
   .then(post => {
     req.body.commentAuthor = req.user.profile._id
@@ -219,7 +211,7 @@ function deleteComment(req, res) {
       }
     })
   .catch(err => {
-    console.log('❌❌')
+    console.log('❌')
     console.log(err)
     res.redirect('/')
   })

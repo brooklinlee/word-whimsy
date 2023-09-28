@@ -8,47 +8,46 @@
     <hr>
   </div>
   <section class="flex-row">
-  <div class="div-2">
-    <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
-      <label for="date-edit">Date:</label>
-      <input type="date" name="date" id="date-edit" value="<%= post.date %>">
-  </div>
-  <div class="div-3">
-    <label for="title-edit">Title:</label>
-    <input type="text" name="title" id="title-edit" value="<%= post.title %>">
-  </div> 
-  <div class="div-4">  
-    <label for="feelings-edit" >Feelings:</label>
-    <select name="feelings" id="feelings-edit">
-      <option value="<%= post.feelings %>"><%= post.feelings %></option>
-      <option value="😄">😄</option>
-      <option value="😢">😢</option>
-      <option value="🥳">🥳</option>
-      <option value="😴">😴</option>
-      <option value="😠">😠</option>
-      <option value="😎">😎</option>
-      <option value="🥰">🥰</option>
-      <option value="😋">😋</option>
-      <option value="😂">😂</option>
-      <option value="🤠">🤠</option>
-    </select>
-  </div>
-  <div class="div-5" id="checkbox-div">     
-    <label for="public-checkbox-edit">Public:</label>
-    <input type="checkbox" name="public" id="public-checkbox" <%= post.public ? 'checked' : '' %> id="public-checkbox-edit">
-  </div> 
-  </section>
-  <div class="div-6 centered">   
-    <label for="entry-edit" class="non-inline-label" id="entry-edit-label">Edit:</label>
-  </div>
-  <div class="div-7 centered" >
-    <textarea name="content" id="entry-edit" cols="30" rows="10"><%= post.content %></textarea>
-  </div>
-  <div class="div-8 centered" >
-    <button type="submit">Save Whimsy</button>
-    </form>
-  </div>
-
+    <div class="div-2">
+      <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
+        <label for="date-edit">Date:</label>
+        <input type="date" name="date" id="date-edit" value="<%= post.date %>">
+      </div>
+      <div class="div-3">
+        <label for="title-edit">Title:</label>
+        <input type="text" name="title" id="title-edit" value="<%= post.title %>">
+      </div> 
+      <div class="div-4">  
+        <label for="feelings-edit" >Feelings:</label>
+        <select name="feelings" id="feelings-edit">
+          <option value="<%= post.feelings %>"><%= post.feelings %></option>
+          <option value="😄">😄</option>
+          <option value="😢">😢</option>
+          <option value="🥳">🥳</option>
+          <option value="😴">😴</option>
+          <option value="😠">😠</option>
+          <option value="😎">😎</option>
+          <option value="🥰">🥰</option>
+          <option value="😋">😋</option>
+          <option value="😂">😂</option>
+          <option value="🤠">🤠</option>
+        </select>
+      </div>
+      <div class="div-5" id="checkbox-div">     
+        <label for="public-checkbox-edit">Public:</label>
+        <input type="checkbox" name="public" id="public-checkbox" <%= post.public ? 'checked' : '' %>>
+      </div>
+    </section>
+    <div class="div-6 centered">   
+      <label for="entry-edit" class="non-inline-label" id="entry-edit-label">Edit:</label>
+    </div>
+    <div class="div-7 centered">
+      <textarea name="content" id="entry-edit" cols="30" rows="10"><%= post.content %></textarea>
+    </div>
+    <div class="div-8 centered" >
+      <button type="submit">Save Whimsy</button>
+      </form>
+    </div>
 </main>
 
 <%- include('../partials/footer') %>

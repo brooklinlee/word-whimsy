@@ -2,7 +2,6 @@ body {
   background-image: linear-gradient(to left, #144ECC , #6750CB);
 }
 
-
 a {
   color: var(--main-blue);
   text-decoration: none;
@@ -22,10 +21,6 @@ a {
   gap: 5px;
 }
 
-/* section{
-  border: 1px solid red;
-} */
-
 #profiles-icon {
   display: flex;
   justify-content: center;
@@ -34,6 +29,7 @@ a {
   padding: 15px;
   gap: 5px;
 }
+
 #profiles-index-text {
   padding-left: 4px;
 }

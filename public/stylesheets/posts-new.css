@@ -9,14 +9,12 @@ h1 {
   gap: 10px;
 }
 
-
 #new-post-sec-1, #new-post-sec-1 {
   display: flex;
   align-items: center;
   justify-content: space-around;
   gap: 10px;
 }
-
 
 #new-post-sec-3 {
   text-align: center;

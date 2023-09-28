@@ -5,24 +5,23 @@
 <main id="posts-index">
   <section class="left-column">
     <div class="articles">
-    <h1><%= isSelf ? "Your" : profile.name + "'s"%> Whimsy</h1>
-    <h3><%= isSelf ? "You have " : profile.name + " has "%>
-      <% if (posts.length === 0) { %>
-        No Whimsy Entries
+      <h1><%= isSelf ? "Your" : profile.name + "'s"%> Whimsy</h1>
+      <h3><%= isSelf ? "You have " : profile.name + " has "%>
+        <% if (posts.length === 0) { %>
+          No Whimsy Entries
         <% } else if (posts.length > 1) { %>
           <%= posts.length %> Whimsy Entries!
-      <% } else { %>
-        <%= posts.length %> Whimsy Entry!
-          <% } %>
+        <% } else { %>
+          <%= posts.length %> Whimsy Entry!
+        <% } %>
       </h3>
       <% if (isSelf === false) { %>
-      <p><em>You can only view public whimsy entries</em></p>
-    <% } %>
-    <!-- how many public entries -->
-    <a href="javascript:history.back()">
-      <button>Back to Writers</button>
-    </a>
-  </div>
+        <p><em>You can only view public whimsy entries</em></p>
+      <% } %>
+      <a href="javascript:history.back()">
+        <button>Back to Writers</button>
+      </a>
+    </div>
   </section>
   <section class="right-column" id="reverse-list">
     <% if (hasPublicPosts) { %>
@@ -35,24 +34,24 @@
             <p class="emoji"><%= post.feelings%></p>
             <p><%= post.public ? 'Public 📣' : 'Private 🔑' %></p>
             <% if (isSelf) { %>
-              <span id="posts-index-icons">
-              <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-                <button type="submit">❌</button>
-              </form>
-              <form action="/posts/<%= post._id %>/edit" method="GET">
-                <button type="submit">✏️</button>
-              </form>
-            </span>
-              <% } %>
-            </div>
+              <div id="posts-index-icons">
+                <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                  <button type="submit">❌</button>
+                </form>
+                <form action="/posts/<%= post._id %>/edit" method="GET">
+                  <button type="submit">✏️</button>
+                </form>
+              </div>
             <% } %>
-          <% }) %>
-        <% } else { %>
-      <div class="white-div" id="index-div">
-        <h1 class="gradient-border-bottom" id="post-title">No Available Public Posts</h1>
-        <p>Try visiting again later!</p>
-      </div>
-    <% } %>
+          </div>
+        <% } %>
+      <% }) %>
+    <% } else { %>
+          <div class="white-div" id="index-div">
+            <h1 class="gradient-border-bottom" id="post-title">No Available Public Posts</h1>
+            <p>Try visiting again later!</p>
+          </div>
+      <% } %>
   </section>
 </main>
 

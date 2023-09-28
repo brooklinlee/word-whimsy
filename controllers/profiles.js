@@ -8,7 +8,6 @@ function index(req, res) {
     model: 'Post', 
   })
   .then(profiles => {
-    // Post.find({})
     res.render('profiles/index', {
     profiles,
     title: 'All WW Writers',
@@ -55,8 +54,6 @@ function show(req, res) {
     res.redirect('/')
   })
 }
-
-
 
 export {
   index,

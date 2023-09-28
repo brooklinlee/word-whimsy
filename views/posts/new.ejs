@@ -5,12 +5,12 @@
 
 <main id="posts-new">
   <div class="div-1">
-  <h1 class="centered">New Whimsy Entry</h1>
-  <hr>
-</div>
-<section class="flex-row">
-  <div class="div-2">
-  <form action="/posts" method="POST">
+    <h1 class="centered">New Whimsy Entry</h1>
+    <hr>
+  </div>
+  <section class="flex-row">
+    <div class="div-2">
+    <form action="/posts" method="POST">
       <label for="date-input">Date:</label>
       <input type="date" name="date" id="date-input">
     </div>
@@ -42,16 +42,15 @@
       <h2 class="centered">Need a hand? Try writing about this!</h2>
       <h3 class="centered"><em><%= getRandomJournalPrompt() %></em></h3>
     </div>
-    <div class="div-7" class="centered">
+    <div class="div-7 centered">
       <label for="entry-input" class="non-inline-label">Entry:</label>
     </div>
     <div class="div-8 centered">
       <textarea name="content" id="entry-input" cols="30" rows="10" placeholder="Type your Whimsy entry here..."></textarea>
       <p class="centered">*required to save Whimsy entry</p>
       <button type="submit" class="centered">Save Whimsy</button>
-    
-  </form>
-</div>
+    </form>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>

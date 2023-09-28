@@ -9,16 +9,15 @@
         <p><%= getRandomIcon() %></p>
       </section>
       <section id="profiles-index-text">
-        <a href="/profiles/<%= profile._id %>"><h1><%= profile.name %></h1></a>
+        <h1><a href="/profiles/<%= profile._id %>"><%= profile.name %></a></h1>
         <% if (profile.posts.length === 0) { %>
           No Whimsy Entries
-          <% } else if (profile.posts.length > 1) { %>
-            <%= profile.posts.length %> Whimsy Entries
+        <% } else if (profile.posts.length > 1) { %>
+          <%= profile.posts.length %> Whimsy Entries
         <% } else { %>
           <%= profile.posts.length %> Whimsy Entry
-            <% } %>
+        <% } %>
       </section>
-      
     </div>
   <% }) %>
 </main>

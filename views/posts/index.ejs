@@ -6,17 +6,18 @@
   <section class="left-column">
     <div class="articles">
       <span id="bottom-border-gradient">
-      <h1><%= user.profile.name %>'s Whimsy</h1>
-    </span>
-      <h3>You have 
+        <h1><%= user.profile.name %>'s Whimsy</h1>
+      </span>
+      <h3>
+        You have 
         <% if (posts.length === 0) { %>
           No Whimsy Entries
-          <% } else if (posts.length > 1) { %>
-            <%= posts.length %> Whimsy Entries!
+        <% } else if (posts.length > 1) { %>
+          <%= posts.length %> Whimsy Entries!
         <% } else { %>
           <%= posts.length %> Whimsy Entry!
-            <% } %>
-          </h3>
+        <% } %>
+      </h3>
       <a href="/posts/new">
         <button type="submit">New Whimsy</button>
       </a>
@@ -24,21 +25,21 @@
   </section>
   <section class="right-column" id="reverse-list">
     <% posts.forEach(post => { %>
-    <div class="white-div" id="index-div">
-      <a href="/posts/<%= post._id %>" ><h1 class="gradient-border-bottom" id="post-title"><%= post.title %></h1></a>
-      <p><em><%= post.author.name %></em></p>
-      <p><%= post.date %></p>
-      <p class="emoji"><%= post.feelings%></p>
-      <p><%= post.public ? 'Public 📣' : 'Private 🔑' %></p>
-      <span  id="posts-index-icons">
-        <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-          <button type="submit">❌</button>
-        </form>
-        <form action="/posts/<%= post._id %>/edit" method="GET">
-          <button type="submit">✏️</button>
-        </form>
-      </span>
-    </div>
+      <div class="white-div" id="index-div">
+        <a href="/posts/<%= post._id %>" ><h1 class="gradient-border-bottom" id="post-title"><%= post.title %></h1></a>
+        <p><em><%= post.author.name %></em></p>
+        <p><%= post.date %></p>
+        <p class="emoji"><%= post.feelings%></p>
+        <p><%= post.public ? 'Public 📣' : 'Private 🔑' %></p>
+        <span  id="posts-index-icons">
+          <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+            <button type="submit">❌</button>
+          </form>
+          <form action="/posts/<%= post._id %>/edit" method="GET">
+            <button type="submit">✏️</button>
+          </form>
+        </span>
+      </div>
     <% }) %>
   </section>
 </main>

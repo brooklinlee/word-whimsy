@@ -6,3 +6,4 @@ editBtns.forEach((btn, idx) => {
     editForms[idx].style.display = editForms[idx].style.display === "flex" ? "none" : "flex"
   })
 })
+

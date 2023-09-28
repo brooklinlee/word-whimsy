@@ -22,10 +22,10 @@
   </section>
   <section id="ps-sect-4">
     <article id="content-div">
-    <div class="white-div" id="content-display-div">
-      <textarea readonly name="content" id="content-display" cols="30" rows="10"><%= post.content %></textarea>
-    </div>
-  </article>
+      <div class="white-div" id="content-display-div">
+        <textarea readonly name="content" id="content-display" cols="30" rows="10"><%= post.content %></textarea>
+      </div>
+    </article>
     <article class="edit-back-buttons">
       <% if (isSelf) { %>
         <a href="/posts/<%= post._id %>/edit">
@@ -36,13 +36,11 @@
         <button>Go Back</button>
       </a>
     </article>
-    <!-- <hr> -->
   </section>
   <section id="ps-sect-5">
     <h1>Comments:</h1>
   </section>
   <form action="/posts/<%= post._id %>/comments" method="POST" >
-    <label for="comment-input"></label>
     <textarea name="theComment" id="comment-input" cols="30" rows="10" placeholder="Commenting as <%= user.profile.name %>..."></textarea>
     <button type="submit">Add Comment</button>
   </form>
