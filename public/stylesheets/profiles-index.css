@@ -10,19 +10,25 @@ a {
 
 #profiles-index-main {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
 #profiles-index-div {
-  width: 32%;
+  width: 350px;
+  height: 200px;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   padding: 15px;
+  margin-top: 4%;
   gap: 5px;
 }
 
 #profiles-icon {
+  
   display: flex;
+  width: fit-content;
   justify-content: center;
   align-items: center;
   font-size: 45px;
@@ -31,5 +37,5 @@ a {
 }
 
 #profiles-index-text {
-  padding-left: 4px;
+  padding-top: 0;
 }
