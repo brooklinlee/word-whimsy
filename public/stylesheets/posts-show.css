@@ -52,13 +52,13 @@ h1 {
 
 hr {
   margin-top: 24px;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
 }
 
 #ps-sect-1 {
   text-align: center;
-  line-height: 0.2;
   margin-top: 12px;
   margin-bottom: 12px;
 }
@@ -124,6 +124,7 @@ hr {
 
 #comment-authors-name {
   font-size: 16px;
+  color: #144ECC;
 }
 
 #form-buttons-section{
@@ -138,4 +139,25 @@ hr {
 
 .edit-comment-form {
   display: none;
+}
+
+#comments-div {
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 6%;
+}
+
+textarea {
+  border-radius: 20px;
+  margin-bottom: 6%;
+}
+
+#no-comments-div {
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+#no-comments-div > h2 {
+  color: #144ECC;
 }

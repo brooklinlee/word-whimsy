@@ -7,3 +7,5 @@ editBtns.forEach((btn, idx) => {
   })
 })
 
+const currentDate = new Date();
+const formattedDate = currentDate.toLocaleDateString()

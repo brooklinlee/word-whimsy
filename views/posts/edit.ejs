@@ -11,7 +11,7 @@
     <div class="div-2">
       <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
         <label for="date-edit">Date:</label>
-        <input type="date" name="date" id="date-edit" value="<%= post.date %>">
+        <p class="white-div" id="date-div"><%= post.date.toLocaleDateString() %></p>
       </div>
       <div class="div-3">
         <label for="title-edit">Title:</label>
@@ -45,7 +45,7 @@
       <textarea name="content" id="entry-edit" cols="30" rows="10"><%= post.content %></textarea>
     </div>
     <div class="div-8 centered" >
-      <button type="submit">Save Whimsy</button>
+      <button type="submit" id="save-button">Save Whimsy</button>
       </form>
     </div>
 </main>

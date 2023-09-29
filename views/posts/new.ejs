@@ -11,11 +11,8 @@
   <section class="flex-row">
     <div class="div-2">
     <form action="/posts" method="POST">
-      <!-- <label for="date-input">Date:</label>
-      <p>
-        
-      </p> -->
-      <!-- <input type="date" name="date" id="date-input"> -->
+      <label> Date:</label>
+      <p class="white-div" id="date-div"><%= new Date().toLocaleDateString() %></p>
     </div>
     <div class="div-3">
       <label for="title-input">Title:</label>
@@ -51,7 +48,7 @@
     <div class="div-8 centered">
       <textarea name="content" id="entry-input" cols="30" rows="10" placeholder="Type your Whimsy entry here..."></textarea>
       <p class="centered">*required to save Whimsy entry</p>
-      <button type="submit" class="centered">Save Whimsy</button>
+      <button type="submit" class="centered" id="save-button">Save Whimsy</button>
     </form>
   </div>
 </main>

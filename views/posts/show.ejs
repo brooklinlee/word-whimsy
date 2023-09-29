@@ -47,7 +47,7 @@
   <section>
     <% if (hasComments) { %>
       <% post.comments.forEach(comment => { %>
-      <div class="white-div">
+      <div class="white-div" id="comments-div">
         <p><%= comment.theComment %></p>
         <p id="comment-authors-name"><em><%= comment.commentAuthor.name %></em></p>
         <article id="form-buttons-section">
@@ -69,12 +69,11 @@
       </div>
     <% }) %>
     <% } else { %>
-      <div class="white-div">
+      <div class="white-div" id="no-comments-div">
         <h2>No comments yet!</h2>
         <p>Start the conversation by adding one now</p>
       </div>
     <% } %>
-    
   </section>
 </main>
 
