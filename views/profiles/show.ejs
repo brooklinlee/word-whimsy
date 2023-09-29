@@ -30,7 +30,7 @@
           <div class="white-div" id="index-div">
             <a href="/posts/<%= post._id %>"><h1 class="gradient-border-bottom" id="post-title"><%= post.title %></h1></a>
             <p><em><%= post.author.name %></em></p>
-            <p><%= post.date %></p>
+            <p><%= post.date.toLocaleDateString() %></p>
             <p class="emoji"><%= post.feelings%></p>
             <p><%= post.public ? 'Public 📣' : 'Private 🔑' %></p>
             <% if (isSelf) { %>

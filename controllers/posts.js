@@ -153,6 +153,7 @@ function show(req, res) {
   })
   .then(post => {
     const isSelf = post.author._id.equals(req.user.profile._id);
+    const hasComments = post.comments.length > 0
     const comments = post.comments
     const userProfileId = req.user.profile._id
     res.render('posts/show', {
@@ -160,7 +161,8 @@ function show(req, res) {
     post,
     isSelf,
     comments,
-    userProfileId
+    userProfileId,
+    hasComments
     })
   })
   .catch(err => {

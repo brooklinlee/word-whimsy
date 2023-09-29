@@ -10,7 +10,7 @@
   </section>
   <section id="ps-sect-2">
     <h1 id="date-label">Date:</h1>
-    <p class="thin-letters"><%= post.date %></p>
+    <p class="thin-letters"><%= post.date.toLocaleDateString() %></p>
   </section>
   <section>
     <h1 id="emoji-label">How did you feel? </h1>
@@ -45,7 +45,8 @@
     <button type="submit">Add Comment</button>
   </form>
   <section>
-    <% post.comments.forEach(comment => { %>
+    <% if (hasComments) { %>
+      <% post.comments.forEach(comment => { %>
       <div class="white-div">
         <p><%= comment.theComment %></p>
         <p id="comment-authors-name"><em><%= comment.commentAuthor.name %></em></p>
@@ -67,6 +68,13 @@
         <% } %>
       </div>
     <% }) %>
+    <% } else { %>
+      <div class="white-div">
+        <h2>No comments yet!</h2>
+        <p>Start the conversation by adding one now</p>
+      </div>
+    <% } %>
+    
   </section>
 </main>
 

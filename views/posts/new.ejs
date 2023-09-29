@@ -11,8 +11,11 @@
   <section class="flex-row">
     <div class="div-2">
     <form action="/posts" method="POST">
-      <label for="date-input">Date:</label>
-      <input type="date" name="date" id="date-input">
+      <!-- <label for="date-input">Date:</label>
+      <p>
+        
+      </p> -->
+      <!-- <input type="date" name="date" id="date-input"> -->
     </div>
     <div class="div-3">
       <label for="title-input">Title:</label>
@@ -43,7 +46,7 @@
       <h3 class="centered"><em><%= getRandomJournalPrompt() %></em></h3>
     </div>
     <div class="div-7 centered">
-      <label for="entry-input" class="non-inline-label">Entry:</label>
+      <label for="entry-input" class="non-inline-label">Entry: <span class="thin-letters"> *</span></label>
     </div>
     <div class="div-8 centered">
       <textarea name="content" id="entry-input" cols="30" rows="10" placeholder="Type your Whimsy entry here..."></textarea>

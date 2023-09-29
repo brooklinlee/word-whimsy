@@ -14,7 +14,7 @@ html {
 :root {
   --main-blue: #144ECC;
   --dark-blue: #191994;
-  --medium-blue: #6A95F0;
+  --medium-blue: #5888EE;
   --light-blue: #D0D6FF;
   --purple: #6750CB;
 }
@@ -83,7 +83,7 @@ button {
   padding: 16px 32px;
   margin: 4px 2px;
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   transition-duration: 0.4s;
   width: fit-content;
@@ -171,6 +171,10 @@ hr {
   margin-top: 24px;
   margin-left: 300px;
   margin-right: 300px;
+}
+
+.thin-letters {
+  font-weight: 300;
 }
 
 main {
