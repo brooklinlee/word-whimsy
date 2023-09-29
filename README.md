@@ -36,6 +36,7 @@ Online journaling with Word Whimsy isn't just about writing down your thoughts; 
 - **Data entity management** 
 - **CSS Flexbox** 
 - **Node.js** 
+- **Passport.js**
 - **Mongoose** 
 - **MongoDB** 
 - **Express.js** 
